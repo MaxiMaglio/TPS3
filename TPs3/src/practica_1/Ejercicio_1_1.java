@@ -22,4 +22,12 @@ public class Ejercicio_1_1 {
         }
         return -1;
     }
+
+    public boolean SeqSearch ( int a[], int k) {
+        for (int i = 0; i < a.length; i++)
+            if (k == a[i])
+                return true;
+        return false;
+    }
+
 }
