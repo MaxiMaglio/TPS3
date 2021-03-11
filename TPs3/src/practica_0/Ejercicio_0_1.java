@@ -1,5 +1,5 @@
-package prog3.practica_0;
-import austral.util.Scanner;
+package practica_0;
+import util.Scanner;
 
 public class Ejercicio_0_1 {
 

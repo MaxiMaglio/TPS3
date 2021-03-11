@@ -13,7 +13,7 @@ public class Ejercicio_1_1 {
         int middle = (min + max) / 2;
         while (min <= max) {
             if (k.compareTo((T) a[middle]) == 0) {
-                return (int) a[middle];
+                return middle;
             } else if (k.compareTo((T) a[middle]) < 0) {
                 max = middle - 1;
             } else

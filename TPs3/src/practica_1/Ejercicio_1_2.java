@@ -4,8 +4,8 @@ public class Ejercicio_1_2 {
     public static void main(String[] args) {
 
         int [] randomArray = randomArray(5, 99, -99);
-
-
+        System.out.println(arrayToString(randomArray));
+        System.out.println(arrayToString(recursiveSelectionSort(randomArray)));
     }
 
     // (2)
@@ -28,7 +28,6 @@ public class Ejercicio_1_2 {
      */
     //____________________________________________________________________________________________________________________________________________________________________________
     // b) Codificarlos.
-
     static int[] selectionSort(int[] array) {
 
         for (int i = 0; i < array.length - 1; i++) {
@@ -250,16 +249,33 @@ public class Ejercicio_1_2 {
     //____________________________________________________________________________________________________________________________________________________________________________
     // g) Desarrollar la versión recursiva del método de selección.
 
-    static int[] RecursiveSelectionSort(int[] array) {
+    static int[] recursiveSelectionSort(int[] array) {
         int i=0;
         int j=1;
-        int min;
+        int min = i;
+        return minIndex(array, i, j, min);
+    }
+    static int[] minIndex(int[] array, int i, int j, int min){
+        String s = arrayToString(array);
+        if (i < array.length){
+            if (j < array.length) {
+                if (array[j] < array[min]) {
+                    min = j;
+                }
+                minIndex(array, i, j+1, min);
+            }else {
+                int aux = array[i];
+                array[i] = array[min];
+                array[min] = aux;
+
+                i++;
+                j = i + 1;
+                min = i;
+                minIndex(array, i, j, min);
+            }
+        }
         return array;
     }
-    static int minIndex(int array[], int i, int j){
-
-    }
-
     //____________________________________________________________________________________________________________________________________________________________________________
     // extras
     static int[] copyArray(int array[]){
