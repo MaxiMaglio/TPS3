@@ -28,6 +28,7 @@ public class Ejercicio_1_2 {
      */
     //____________________________________________________________________________________________________________________________________________________________________________
     // b) Codificarlos.
+
     static int[] selectionSort(int[] array) {
 
         for (int i = 0; i < array.length - 1; i++) {
@@ -114,7 +115,7 @@ public class Ejercicio_1_2 {
         long end = System.currentTimeMillis();
         return (double) ((end - start));    }
 
-    static double insertionSortExecutionTime(int array[]) {
+    static double insertionSortExecutionTime(int[] array) {
         long start = System.currentTimeMillis(); //devuelve un número long que devuelve los milisegundos desde el 01/01/1970.
         int n = array.length;
         for (int j = 1; j < n; j++) {
