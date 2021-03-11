@@ -251,7 +251,13 @@ public class Ejercicio_1_2 {
     // g) Desarrollar la versión recursiva del método de selección.
 
     static int[] RecursiveSelectionSort(int[] array) {
-        return array; // falta implementar
+        int i=0;
+        int j=1;
+        int min;
+        return array;
+    }
+    static int minIndex(int array[], int i, int j){
+
     }
 
     //____________________________________________________________________________________________________________________________________________________________________________
