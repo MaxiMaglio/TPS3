@@ -9,22 +9,27 @@ public class Ejercicio_1_2 {
     }
 
     // (2)
-    //Un problema muy frecuente es ordenar un conjunto de datos en forma ascendente o
-    //descendente. Los datos pueden ser números enteros, dobles, strings o estructuras más
-    //complejas. Este problema se conoce en inglés como sort. Algunos algoritmos básicos son
-    //selección, inserción, y burbujeo. Hay otros más complejos pero más eficientes como por
-    //ejemplo quicksort.
+    /*
+    Un problema muy frecuente es ordenar un conjunto de datos en forma ascendente o
+    descendente. Los datos pueden ser números enteros, dobles, strings o estructuras más
+    complejas. Este problema se conoce en inglés como sort. Algunos algoritmos básicos son
+    selección, inserción, y burbujeo. Hay otros más complejos pero más eficientes como por
+    ejemplo quicksort.
+    */
     //____________________________________________________________________________________________________________________________________________________________________________
     // a) Describir los algoritmos de selección, inserción, burbujeo.
 
     /*
     selección:
-                Consiste en encontrar el menor de todos los elementos del arreglo o vector e intercambiarlo con el que está en la primera posición. Luego el segundo mas pequeño, y así sucesivamente hasta ordenarlo todo.
+                Consiste en encontrar el menor de todos los elementos del arreglo o vector e intercambiarlo con el que está en la primera posición.
+                Luego el segundo mas pequeño, y así sucesivamente hasta ordenarlo todo.
 
     inserción:
-                El metodo de insercion es el siguiente: Se ordenan los primeros dos valores del array en el orden deseado (ascendente/descendente). Luego, se toma el 3er valor y este se inserta en la posición correcta respecto a los otros dos valores, y así sucesivamente.
+                El metodo de insercion es el siguiente: Se ordenan los primeros dos valores del array en el orden deseado (ascendente/descendente).
+                Luego, se toma el 3er valor y este se inserta en la posición correcta respecto a los otros dos valores, y así sucesivamente.
     burbujeo:
-                El algoritmo de la burbuja es un algoritmo de ordenamiento de arreglos popular, este dividirá el arreglo en 2 secciones o particiones, una ordenada y la otra desordenada, durante la ejecución la partición ordenada irá creciendo y la des ordenada irá disminuyendo.
+                El algoritmo de la burbuja es un algoritmo de ordenamiento de arreglos popular, este dividirá el arreglo en 2 secciones o particiones,
+                una ordenada y la otra desordenada, durante la ejecución la partición ordenada irá creciendo y la des ordenada irá disminuyendo.
      */
     //____________________________________________________________________________________________________________________________________________________________________________
     // b) Codificarlos.
@@ -85,7 +90,7 @@ public class Ejercicio_1_2 {
         }
         long end = System.currentTimeMillis();
         return array;
-    } //devuele un arreglo de (n) longitud, con numeros aleatorios desde (minNumber) hasta (maxNumber).
+    } //devuelve un arreglo de (n) longitud, con numeros aleatorios desde (minNumber) hasta (maxNumber).
 
     static double randomArrayExecutionTime(int arrayLength, int minNumber, int maxNumber){
         long start = System.currentTimeMillis(); //devuelve un número long que devuelve los milisegundos desde el 01/01/1970.
@@ -113,7 +118,7 @@ public class Ejercicio_1_2 {
             }
         }
         long end = System.currentTimeMillis();
-        return (double) ((end - start));    }
+        return (double) ((end - start));    } // Devuelve los milisegundos que tarda el metodo de selectionSort en ordenar un arreglo.
 
     static double insertionSortExecutionTime(int[] array) {
         long start = System.currentTimeMillis(); //devuelve un número long que devuelve los milisegundos desde el 01/01/1970.
@@ -128,7 +133,7 @@ public class Ejercicio_1_2 {
             array[i + 1] = key;
         }
         long end = System.currentTimeMillis();
-        return (double) ((end - start));    }
+        return (double) ((end - start));    } // Devuelve los milisegundos que tarda el metodo de insertionSort en ordenar un arreglo.
 
     static double bubbleSortExecutionTime(int[] array) {
         long start = System.currentTimeMillis(); //devuelve un número long que devuelve los milisegundos desde el 01/01/1970.
@@ -145,7 +150,7 @@ public class Ejercicio_1_2 {
         }
         long end = System.currentTimeMillis();
         return (double) ((end - start));
-    }
+    } // Devuelve los milisegundos que tarda el metodo de bubbleSort en ordenar un arreglo.
     //____________________________________________________________________________________________________________________________________________________________________________
     // d) Modificar los algoritmos anteriores para que ordenen cadenas. Observar que hay que realizar muy pocos cambios.
 
@@ -256,6 +261,7 @@ public class Ejercicio_1_2 {
         int min = i;
         return minIndex(array, i, j, min);
     }
+
     static int[] minIndex(int[] array, int i, int j, int min){
         String s = arrayToString(array);
         if (i < array.length){
@@ -310,8 +316,9 @@ public class Ejercicio_1_2 {
 }
 
 /*
+        //prueba de diferentes tiempos de ejecucion para la creacion de arreglos de diferente tamaño
         System.out.println(randomArrayExecutionTime(100,0,100));
         System.out.println(randomArrayExecutionTime(1000,0,100));
         System.out.println(randomArrayExecutionTime(10000,0,100));
         System.out.println(randomArrayExecutionTime(3000000,0,100));
- */
+*/
