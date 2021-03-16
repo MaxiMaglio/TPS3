@@ -23,11 +23,43 @@ public class Ejercicio_1_1 {
         return -1;
     }
 
-    public boolean SeqSearch ( int a[], int k) {
+    public <T> int SeqSearch (Comparable<T>[] a, Comparable<T> k) {
         for (int i = 0; i < a.length; i++)
-            if (k == a[i])
-                return true;
-        return false;
+            if (k.compareTo((T) a[i]) == 0)
+                return i;
+        return -1;
     }
 
+    public <T> Object[] mergeArray(Comparable<T>[] arrayA, Comparable<T>[] arrayB){
+        Object[] arrayC = new Object[arrayA.length+arrayB.length];
+        int a=0;
+        int b=0;
+        int c=0;
+        for (int i = 0; i < arrayC.length ; i++) {
+            if (a < arrayA.length && b < arrayB.length) {
+                if (arrayA[a].compareTo((T) arrayB[b]) < 1) {
+                    arrayC[c] = arrayA[a];
+                    c++;
+                    a++;
+                } else {
+                    arrayC[c] = arrayB[b];
+                    c++;
+                    b++;
+                }
+            }else if(a >= arrayA.length){
+                for (int j = b; j < arrayB.length; j++) {
+                    arrayC[c]=arrayB[b];
+                    c++;
+                    b++;
+                }
+            }else{
+                for (int j = a; j < arrayA.length; j++) {
+                    arrayC[c]=arrayA[a];
+                    c++;
+                    b++;
+                }
+            }
+        }
+        return arrayC;
+    }
 }
