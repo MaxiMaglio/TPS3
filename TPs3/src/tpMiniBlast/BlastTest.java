@@ -9,8 +9,8 @@ public class BlastTest {
     @org.junit.Test
     public void blast() {
         Blast mb = new Blast();
-        String a = "tgctacataatt";
-        String b = "agctacatacat";
-        Assert.assertEquals(75.0, mb.blast(a, b), 0);
+         char[] a = {'a','g','c','t'};
+         char[] b = {'a','c','g','t'};
+        Assert.assertEquals(50.0, mb.blast(a, b), 0);
     }
 }
