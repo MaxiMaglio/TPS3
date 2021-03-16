@@ -15,11 +15,11 @@ public class Blast {
     //secuencias.
     //NOTA: suponer que ambas secuencias tienen la misma longitud.
 
-    public double blast(String query, String reference){
+    public double blast(char[] query, char[] reference){
         double sameLetterCount = 0;
-        for(int i = 0; i < reference.length(); i++){
+        for(int i = 0; i < reference.length; i++){
             //If similar characters are found, then sameLetterCount+=1
-            if(Character.compare(reference.charAt(i), query.charAt(i)) == 0){
+            if(Character.compare(reference[i], query[i]) == 0){
                 sameLetterCount += 1;
             }
             else{
@@ -27,7 +27,7 @@ public class Blast {
             }
         }
         //Calculate the percentage of similar characters found
-        double percentage = (sameLetterCount / reference.length());
+        double percentage = (sameLetterCount / reference.length);
         return percentage * 100;
     }
 }
