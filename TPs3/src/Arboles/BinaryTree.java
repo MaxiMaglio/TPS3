@@ -1,7 +1,7 @@
 package Arboles;
 
 /**
- * @author Maxi Maglio on 3/30/2021.
+ * @author Maximiliano Maglio, Guido Molaro and Juan Manuel Pérez Menéndez on 3/30/2021.
  * @project TPS3
  */
 public class BinaryTree<T> {
