@@ -1,5 +1,7 @@
 package StacksAndQueues;
 
+import utils.IsEmptyException;
+
 public interface QueueInterface<T> {
 
     void enqueue(T element);
