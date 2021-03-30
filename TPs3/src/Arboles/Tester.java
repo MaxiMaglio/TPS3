@@ -27,7 +27,7 @@ public class Tester {
         BinaryTree <Book>    t7 = new BinaryTree<Book>(l1,t5,t6);
 
 
-        System.out.println(a.size(t7));
+        System.out.println(a.weight(t7));
         System.out.println("__________");
         a.inorden(t7)	;
         System.out.println("__________");
