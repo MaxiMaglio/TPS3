@@ -10,7 +10,7 @@ public class Point14TreeApiTest<T> {
     BinaryTree<Integer> t3 = new BinaryTree<>(30,tree,t2);
     BinaryTree<Integer> t4 = new BinaryTree<>(5,t3,t2);
     BinaryTree<Integer> t5 = new BinaryTree<>(1,t4,t4);
-    BinaryTree<Integer> t6 = new BinaryTree<>(10,t2,tree);
+    BinaryTree<Integer> t6 = new BinaryTree<>(8,t2,tree);
 
     Book l1 = new Book(12, "Hamlet", 230);
     Book l2 = new Book(25, "Muerte en las nubes", 321);

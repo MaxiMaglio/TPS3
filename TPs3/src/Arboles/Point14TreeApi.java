@@ -61,16 +61,19 @@ public class Point14TreeApi<T> {
         } else return (!tree1.isEmpty() || tree2.isEmpty()) && (!tree2.isEmpty() || tree1.isEmpty());
     }
 
-    public boolean semejantes(BinaryTree tree1, BinaryTree tree2){
-        T value = (T) tree1.getRoot();
-        if(1==t.ocurrencias(tree2,value)){
-            semejantes(tree1.getLeft(),tree2);
-            semejantes(tree1.getRight(),tree2);
+    public boolean semejantes(BinaryTree tree1, BinaryTree tree2) {
 
-        }else{
-            return false;
-        }
-        return true;
+            T value = (T) tree1.getRoot();
+
+            if (1 == t.ocurrencias(tree2, value)) {
+                if (!tree1.getLeft().isEmpty())
+                    semejantes(tree1.getLeft(), tree2);
+                if (!tree1.getRight().isEmpty())
+                    semejantes(tree1.getRight(), tree2);
+                return true;
+            } else {
+                return false;
+            }
     }
 
 }
