@@ -6,7 +6,7 @@ package Arboles;
  */
 public class IntegerTreeApi {
 
-    public Integer sum(BinaryTree<Integer> tree){
+    public Integer sum(BinaryTree<Integer> tree) {
         if (tree.isEmpty()) {
             return 0;
         }
@@ -14,6 +14,25 @@ public class IntegerTreeApi {
             return tree.getRoot();
         } else {
             return sum(tree.getLeft()) + sum(tree.getRight()) + tree.getRoot();
+        }
+    }
+
+    public Integer sumOfMultiplesOf3(BinaryTree<Integer> tree) {
+        if (tree.isEmpty()) {
+            return 0;
+        }
+        if (tree.getLeft().isEmpty() && tree.getRight().isEmpty()) {
+            if (tree.getRoot()%3 == 0) {
+                return tree.getRoot();
+            } else {
+                return 0;
+            }
+        } else {
+            if (tree.getRoot() % 3 == 0) {
+                return sum(tree.getLeft()) + sum(tree.getRight()) + tree.getRoot();
+            } else {
+                return sum(tree.getLeft()) + sum(tree.getRight());
+            }
         }
     }
 }
