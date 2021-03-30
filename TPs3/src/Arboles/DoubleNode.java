@@ -17,5 +17,9 @@ public class DoubleNode<T>{
     public DoubleNode(T o, DoubleNode<T> izq, DoubleNode<T> der) {
         this.data = o; this.left = izq; this.right = der;
     }
+
+    public T getData() {
+        return data;
+    }
 }
 
