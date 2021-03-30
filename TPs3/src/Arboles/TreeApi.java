@@ -9,10 +9,10 @@ import java.util.ArrayList;
 public class TreeApi<T> {
 
     //Este seria el ejercicio 13)a)
-    public int size(BinaryTree<T> a) {
+    public int weight(BinaryTree<T> a) {
         if (a.isEmpty()) {
             return 0;
-        } else return 1 + size(a.getLeft()) + size(a.getRight());
+        } else return 1 + weight(a.getLeft()) + weight(a.getRight());
     }
 
     //Numero de hojas (nodos vacios). Ejercicio 13)b)
@@ -107,7 +107,7 @@ public class TreeApi<T> {
                 elementosPorNivelDer(a.getRight(), level);
             }
         }
-        return size(a);
+        return weight(a);
     }*/
     public int height(BinaryTree<T> tree){
         if(tree.isEmpty()){
