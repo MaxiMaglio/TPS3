@@ -62,7 +62,13 @@ public class Point14TreeApiTest<T> {
 
     @Test
     public void isomorfosShouldReturnFalse(){
-        boolean equals = ita.isomorfos(t4,t5);
-        Assert.assertFalse(equals);
+        boolean isomorfos = ita.isomorfos(t4,t5);
+        Assert.assertFalse(isomorfos);
+    }
+
+    @Test
+    public void semejantesShouldReturnTrue(){
+        boolean semejantes = ita.semejantes(t3,t6);
+        Assert.assertTrue(semejantes);
     }
 }

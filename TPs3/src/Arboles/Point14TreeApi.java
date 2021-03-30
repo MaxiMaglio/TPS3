@@ -1,5 +1,7 @@
 package Arboles;
 
+import java.util.ArrayList;
+
 /**
  * @author Maximiliano Maglio, Guido Molaro and Juan Manuel Pérez Menéndez on 3/30/2021.
  * @project TPS3
@@ -56,10 +58,19 @@ public class Point14TreeApi<T> {
     public boolean isomorfos(BinaryTree tree1, BinaryTree tree2) {
         if (!tree1.isEmpty() && !tree2.isEmpty()) {
             return isomorfos(tree1.getLeft(), tree2.getLeft()) && isomorfos(tree1.getRight(), tree2.getRight());
-        } else if ((tree1.isEmpty() && !tree2.isEmpty()) || (tree2.isEmpty() && !tree1.isEmpty())) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return (!tree1.isEmpty() || tree2.isEmpty()) && (!tree2.isEmpty() || tree1.isEmpty());
     }
+
+    public boolean semejantes(BinaryTree tree1, BinaryTree tree2){
+        T value = (T) tree1.getRoot();
+        if(1==t.ocurrencias(tree2,value)){
+            semejantes(tree1.getLeft(),tree2);
+            semejantes(tree1.getRight(),tree2);
+
+        }else{
+            return false;
+        }
+        return true;
+    }
+
 }
