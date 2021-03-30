@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @project TPS3
  */
 public class TreeApi<T> {
+
     //Este seria el ejercicio 13)a)
     public int size(BinaryTree<T> a) {
         if (a.isEmpty()) {
@@ -76,10 +77,16 @@ public class TreeApi<T> {
     int countLeft = 1;
     int countRight = 1;
 
-
-    public int elementosPorNivel(BinaryTree<T> a, int level){
-        return elementosPorNivelIzq(a, level) + elementosPorNivelDer(a, level);
-
+    //Ejercicio 13c)
+    /*public int elementosPorNivel(BinaryTree<T> a, int level){
+        int elements = 0;
+        for (int i = 1; i < level-1; i++) {
+            if(!a.getLeft().isEmpty()){
+                elementosPorNivelIzq(a.getLeft(),level);
+            }if(!a.getRight().isEmpty()){
+                elementosPorNivelDer(a.getRight(),level);
+            }
+        }
     }
 
     private int elementosPorNivelIzq(BinaryTree<T> a, int level) {
@@ -87,9 +94,11 @@ public class TreeApi<T> {
             if (!a.getLeft().isEmpty()) {
                 countLeft++;
                 elementosPorNivelIzq(a.getLeft(), level);
+            }else{
+                return 0;
             }
         }
-        return size(a);
+    return 0;
     }
     private int elementosPorNivelDer(BinaryTree<T> a, int level) {
         if (countRight != level){
@@ -99,5 +108,17 @@ public class TreeApi<T> {
             }
         }
         return size(a);
+    }*/
+    public int height(BinaryTree<T> tree){
+        if(tree.isEmpty()){
+            return -1;
+        }
+        int heightLeft= height(tree.getLeft());
+        int heightRight = height(tree.getRight());
+        if(heightLeft>heightRight){
+            return heightLeft+1;
+        }else{
+            return heightRight+1;
+        }
     }
 }

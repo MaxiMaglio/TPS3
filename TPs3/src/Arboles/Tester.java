@@ -40,7 +40,7 @@ public class Tester {
 
         System.out.println("Number of leaves: " + a.leafCount(t7));
 
-        System.out.println("NUmber of elements by level: " + a.elementosPorNivel(t7, 3));
+        //System.out.println("NUmber of elements by level: " + a.elementosPorNivel(t7, 3));
     }
 
 }
