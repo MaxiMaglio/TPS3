@@ -109,16 +109,160 @@ public class TreeApi<T> {
         }
         return weight(a);
     }*/
-    public int height(BinaryTree<T> tree){
-        if(tree.isEmpty()){
+    public int height(BinaryTree tree) {
+        if (tree.isEmpty()) {
             return -1;
         }
-        int heightLeft= height(tree.getLeft());
+        int heightLeft = height(tree.getLeft());
         int heightRight = height(tree.getRight());
-        if(heightLeft>heightRight){
-            return heightLeft+1;
-        }else{
-            return heightRight+1;
+        if (heightLeft > heightRight) {
+            return heightLeft + 1;
+        } else {
+            return heightRight + 1;
         }
     }
+
+    public Integer sum(BinaryTree<Integer> tree) {
+        if (tree.isEmpty()) {
+            return 0;
+        }
+        if (tree.getLeft().isEmpty() && tree.getRight().isEmpty()) {
+            return tree.getRoot();
+        } else {
+            return sum(tree.getLeft()) + sum(tree.getRight()) + tree.getRoot();
+        }
+    }
+
+    public Integer sumOfMultiplesOf3(BinaryTree<Integer> tree) {
+        int a = tree.getRoot();
+        if (tree.isEmpty()) {
+            return 0;
+        }
+        if (tree.getLeft().isEmpty() && tree.getRight().isEmpty()) {
+            if (a % 3 == 0) {
+                return a;
+            } else {
+                return 0;
+            }
+        } else {
+            if (a % 3 == 0) {
+                return sumOfMultiplesOf3(tree.getLeft()) + sumOfMultiplesOf3(tree.getRight()) + a;
+            }
+            {
+                return sumOfMultiplesOf3(tree.getLeft()) + sumOfMultiplesOf3(tree.getRight());
+            }
+        }
+    }
+
+    public boolean includes(BinaryTree tree1, BinaryTree tree2) {
+        if (tree1.isEmpty()) {
+            return true;
+        } else if (ocurrencias(tree2, (T) tree1.getRoot()) == 1) {
+            return includes(tree1.getLeft(), tree2) && includes(tree1.getRight(), tree2);
+        } else {
+            return false;
+        }
+    }
+
+    public boolean iguales(BinaryTree tree1, BinaryTree tree2) {
+        if (!tree1.isEmpty() && !tree2.isEmpty()) {
+            if (tree1.getRoot() == tree2.getRoot()) {
+                iguales(tree1.getLeft(), tree2.getLeft());
+                iguales(tree1.getRight(), tree2.getRight());
+            } else {
+                return false;
+            }
+        } else if ((tree1.isEmpty() && !tree2.isEmpty()) || (tree2.isEmpty() && !tree1.isEmpty())) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isomorfos(BinaryTree tree1, BinaryTree tree2) {
+        if (!tree1.isEmpty() && !tree2.isEmpty()) {
+            return isomorfos(tree1.getLeft(), tree2.getLeft()) && isomorfos(tree1.getRight(), tree2.getRight());
+        } else return (!tree1.isEmpty() || tree2.isEmpty()) && (!tree2.isEmpty() || tree1.isEmpty());
+    }
+
+    public boolean semejantesSinRepetidos(BinaryTree tree1, BinaryTree tree2) {
+        return weight(tree1) == weight(tree2) && includes(tree1, tree2);
+    }
+
+    public boolean isCompleto(BinaryTree t) {
+        if (t.isEmpty()) {
+            return false;
+        } else if (t.getLeft().isEmpty() && t.getRight().isEmpty()) {
+            return true;
+        } else if (t.getRight().isEmpty() || t.getLeft().isEmpty()) {
+            return false;
+        } else {
+            return isCompleto(t.getLeft()) && isCompleto(t.getRight());
+        }
+    }
+
+
+    public boolean isFull(BinaryTree t) {
+        if (height(t) == 0) {
+            return true;
+        }
+        if (height(t.getRight()) == height(t.getLeft())) {
+            return isFull(t.getLeft()) && isFull(t.getRight());
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isStable(BinaryTree<Integer> t) {
+        if (t.isEmpty()) {
+            return true;
+        }
+        if (t.getRight().isEmpty() && t.getLeft().isEmpty()) {
+            return true;
+        }
+        if (t.getRight().isEmpty() && !t.getLeft().isEmpty()) {
+            if (t.getLeft().getRoot() < t.getRoot()) {
+                return isStable(t.getLeft());
+            }else{
+                return false;
+            }
+        }
+        if (t.getLeft().isEmpty() && !t.getRight().isEmpty()) {
+            if (t.getRight().getRoot() < t.getRoot()) {
+                return isStable(t.getRight());
+            }else{
+                return false;
+            }
+        }else {
+            if(t.getLeft().getRoot()<t.getRoot() & t.getRight().getRoot()<t.getRoot()){
+                return isStable(t.getLeft()) && isStable(t.getRight());
+                }
+            else{
+                return false;
+            }
+        }
+    }
+
+    public void displayBorder(BinaryTree t){
+        if(!t.isEmpty()){
+            if(height(t)==0){
+                System.out.println(t.getRoot());
+            }else{
+                displayBorder(t.getLeft());
+                displayBorder(t.getRight());
+            }
+        }
+    }
+
+    public ArrayList<T> arrayListBorder(BinaryTree t, ArrayList<T> arr){
+        if(!t.isEmpty()){
+            if(height(t)==0){
+                arr.add((T) t.getRoot());
+            }else{
+                arrayListBorder(t.getLeft(),arr);
+                arrayListBorder(t.getRight(),arr);
+            }
+        }
+        return arr;
+    }
+
 }
