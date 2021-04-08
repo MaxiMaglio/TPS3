@@ -1,7 +1,9 @@
 package Grupo10EjCaballo;
 
+import StacksAndQueues.DynamicStack;
 import org.junit.Assert;
 import org.junit.Test;
+import utils.IsEmptyException;
 
 import static org.junit.Assert.*;
 
@@ -33,5 +35,11 @@ public class KnightTest {
     public void validMoveShouldReturnTrue(){
         boolean validMove = knight.validMove(2,3);
         Assert.assertTrue(validMove);
+    }
+
+    @Test
+    public void possibleMovesPrintedCorrectly() throws IsEmptyException {
+        DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{3,4});
+        knight.printPossibleMoves(possibleMoves);
     }
 }

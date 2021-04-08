@@ -1,6 +1,8 @@
 package Grupo10EjCaballo;
 
 import StacksAndQueues.DynamicStack;
+import utils.IsEmptyException;
+
 import java.util.Arrays;
 
 public class Knight {
@@ -44,8 +46,8 @@ public class Knight {
         return false;
     }
 
-    private DynamicStack<int[]> posibleMoves(int[] position){
-        DynamicStack<int[]> stack = new DynamicStack<int[]>();
+    public DynamicStack<int[]> possibleMoves(int[] position){
+        DynamicStack<int[]> stack = new DynamicStack<>();
         for (int i = 0; i < knightMoves.length; i++) {
             int[] possiblePosition = {(position[0] + knightMoves[i][0]), (position[1]+ knightMoves[i][1])};
             if (validMove(possiblePosition[0], possiblePosition[1])){
@@ -53,6 +55,13 @@ public class Knight {
             }
         }
         return stack;
+    }
+
+    public void printPossibleMoves(DynamicStack<int[]> possibleMoves) throws IsEmptyException {
+        for (int i = 0; i <= possibleMoves.size(); i++) {
+            System.out.println(Arrays.toString(possibleMoves.peek()));
+            possibleMoves.pop();
+        }
     }
 
 
