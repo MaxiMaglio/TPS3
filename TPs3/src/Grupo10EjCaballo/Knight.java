@@ -14,6 +14,14 @@ public class Knight {
         this.colPosition = colPosition;
     }
 
+    public int getColPosition() {
+        return colPosition;
+    }
+
+    public int getRowPosition() {
+        return rowPosition;
+    }
+
     public void moveKnight(int newRowPosition, int newColPosition) {
         if(validMove(newRowPosition, newColPosition)){
             rowPosition = newRowPosition;
@@ -21,7 +29,7 @@ public class Knight {
         }
     }
 
-    private boolean validMove(int newRowPosition, int newColPosition){
+    public boolean validMove(int newRowPosition, int newColPosition){
         if((newRowPosition < 1 || newRowPosition > 8) || (newColPosition < 1 || newColPosition > 8)){
             return false;
         }
@@ -46,4 +54,6 @@ public class Knight {
         }
         return stack;
     }
+
+
 }
