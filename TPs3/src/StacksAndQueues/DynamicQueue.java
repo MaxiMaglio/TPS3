@@ -18,13 +18,12 @@ public class DynamicQueue<T> implements QueueInterface<T>{
         if(isEmpty()){
             back = new Node<T>(element);
             front=back;
-            ++size;
         }else {
             Node<T> aux = new Node<T>(element,null);
             back.setNext(aux);
             back=aux;
-            ++size;
         }
+        ++size;
     }
 
     @Override

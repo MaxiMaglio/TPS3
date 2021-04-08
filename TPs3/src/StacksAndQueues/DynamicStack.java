@@ -21,7 +21,6 @@ public class DynamicStack<T> implements StackInterface<T>{
     public T peek() {
         if(!isEmpty()){
             return top.data;
-
         }
         return null;
     }
@@ -34,6 +33,7 @@ public class DynamicStack<T> implements StackInterface<T>{
         top=top.next;
         --size;
     }
+
     @Override
     public void stack(T element) {
         Node n = new Node(element);
