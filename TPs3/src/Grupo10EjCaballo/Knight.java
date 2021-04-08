@@ -46,8 +46,8 @@ public class Knight {
         return false;
     }
 
-    public DynamicStack<int[]> possibleMoves(int[] position){
-        DynamicStack<int[]> stack = new DynamicStack<>();
+    private DynamicStack<int[]> posibleMoves(int[] position){
+        DynamicStack<int[]> stack = new DynamicStack<int[]>();
         for (int i = 0; i < knightMoves.length; i++) {
             int[] possiblePosition = {(position[0] + knightMoves[i][0]), (position[1]+ knightMoves[i][1])};
             if (validMove(possiblePosition[0], possiblePosition[1])){
