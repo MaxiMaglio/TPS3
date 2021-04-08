@@ -9,22 +9,21 @@ public class DynamicQueue<T> implements QueueInterface<T>{
     private int size;
 
     public DynamicQueue(){
-        front=new Node<T>(null,null);
-        back=new Node<T>(null,null);;
-        size=0;
+        front = new Node<T>(null,null);
+        back = new Node<T>(null,null);
+        size = 0;
     }
     @Override
     public void enqueue(T element) {
         if(isEmpty()){
             back = new Node<T>(element);
-            front=back;
-            ++size;
+            front = back;
         }else {
             Node<T> aux = new Node<T>(element,null);
             back.setNext(aux);
-            back=aux;
-            ++size;
+            back = aux;
         }
+        ++size;
     }
 
     @Override
