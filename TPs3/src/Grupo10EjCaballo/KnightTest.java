@@ -42,4 +42,9 @@ public class KnightTest {
         DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{5,5});
         knight.printPossibleMoves(possibleMoves);
     }
+
+    @Test
+    public void metodoPija() throws IsEmptyException {
+        knight.metodoPija(new int[]{5, 5});
+    }
 }

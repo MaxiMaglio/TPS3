@@ -31,7 +31,7 @@ public class Knight {
             colPosition = newColPosition;
         }
     }
-    //(int[] position, int[] newPosition)
+
     public boolean validMove(int[] position, int[] newPosition){
         if((newPosition[0] < 1 || newPosition[0] > 8) || (newPosition[1] < 1 || newPosition[1] > 8)){
             return false;
@@ -57,14 +57,44 @@ public class Knight {
     }
 
     public void printPossibleMoves(DynamicStack<int[]> possibleMoves) throws IsEmptyException {
-       while(possibleMoves.size() != 0){
+       while(!possibleMoves.isEmpty()){
             System.out.print(Arrays.toString(possibleMoves.peek()));
             possibleMoves.pop();
         }
     }
 
+    public String printJourney(int[] initialPosition, int[] firstJump, int[] secondJump, int[] thirdJump, int[] fourthJump){
+        return Arrays.toString(initialPosition) + " - " +Arrays.toString(firstJump) + " - " + Arrays.toString(secondJump) + " - " + Arrays.toString(thirdJump) + " - " + Arrays.toString(fourthJump);
+    }
+
+    public String positionToNotation(int[] position){
+        switch (position[0]){
+
+        }
+          return "";
+    }
 
     public int[] getKnightPosition() {
         return knightPosition;
+    }
+
+    public void metodoPija(int[] initialPosition) throws IsEmptyException {
+        DynamicStack<int[]> firstJump = possibleMoves(initialPosition);
+        while(!firstJump.isEmpty()){
+            DynamicStack<int[]> secondJump = possibleMoves(firstJump.peek());
+            while (!secondJump.isEmpty()){
+                DynamicStack<int[]> thirdJump = possibleMoves(secondJump.peek());
+                while (!thirdJump.isEmpty()){
+                    DynamicStack<int[]> fourthJump = possibleMoves(thirdJump.peek());
+                    while (!fourthJump.isEmpty()){
+                        System.out.println(printJourney(initialPosition, firstJump.peek(), secondJump.peek(),thirdJump.peek(),fourthJump.peek()));
+                        fourthJump.pop();
+                    }
+                    thirdJump.pop();
+                }
+                secondJump.pop();
+            }
+            firstJump.pop();
+        }
     }
 }
