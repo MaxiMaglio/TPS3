@@ -54,6 +54,4 @@ public class Knight {
         }
         return stack;
     }
-
-
 }
