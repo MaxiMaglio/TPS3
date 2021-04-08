@@ -6,7 +6,7 @@ import utils.IsEmptyException;
 import java.util.Arrays;
 
 public class Knight {
-
+    private int[] knightPosition;
     private int rowPosition;
     private int colPosition;
     private final int[][] knightMoves = {{-2,-1},{-2,1},{-1,-2},{-1,2},{1,-2},{1,2},{2,-1},{2,1}};  //Possible knight moves
@@ -14,6 +14,7 @@ public class Knight {
     public Knight(int rowPosition, int colPosition){
         this.rowPosition = rowPosition;
         this.colPosition = colPosition;
+        this.knightPosition = new int[]{rowPosition, colPosition};
     }
 
     public int getColPosition() {
@@ -25,19 +26,17 @@ public class Knight {
     }
 
     public void moveKnight(int newRowPosition, int newColPosition) {
-        if(validMove(newRowPosition, newColPosition)){
+        if(validMove(knightPosition, new int[]{newRowPosition, newColPosition})){
             rowPosition = newRowPosition;
             colPosition = newColPosition;
         }
     }
-
-    public boolean validMove(int newRowPosition, int newColPosition){
-        if((newRowPosition < 1 || newRowPosition > 8) || (newColPosition < 1 || newColPosition > 8)){
+    //(int[] position, int[] newPosition)
+    public boolean validMove(int[] position, int[] newPosition){
+        if((newPosition[0] < 1 || newPosition[0] > 8) || (newPosition[1] < 1 || newPosition[1] > 8)){
             return false;
         }
-        int rowMove = rowPosition - newRowPosition;
-        int colMove = colPosition - newColPosition;
-        int[] move = {rowMove, colMove};
+        int[] move = {position[0] - newPosition[0], position[1] - newPosition[1]};
         for (int i = 0; i < knightMoves.length; i++) {
             if (Arrays.equals(move, knightMoves[i])){
                 return true;
@@ -50,7 +49,7 @@ public class Knight {
         DynamicStack<int[]> stack = new DynamicStack<int[]>();
         for (int i = 0; i < knightMoves.length; i++) {
             int[] possiblePosition = {(position[0] + knightMoves[i][0]), (position[1]+ knightMoves[i][1])};
-            if (validMove(possiblePosition[0], possiblePosition[1])){
+            if (validMove(position, new int[]{possiblePosition[0], possiblePosition[1]})){
                 stack.stack(possiblePosition);
             }
         }
