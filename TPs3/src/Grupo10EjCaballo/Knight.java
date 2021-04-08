@@ -57,11 +57,14 @@ public class Knight {
     }
 
     public void printPossibleMoves(DynamicStack<int[]> possibleMoves) throws IsEmptyException {
-        for (int i = 0; i <= possibleMoves.size(); i++) {
-            System.out.println(Arrays.toString(possibleMoves.peek()));
+       while(possibleMoves.size() != 0){
+            System.out.print(Arrays.toString(possibleMoves.peek()));
             possibleMoves.pop();
         }
     }
 
 
+    public int[] getKnightPosition() {
+        return knightPosition;
+    }
 }

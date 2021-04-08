@@ -21,25 +21,25 @@ public class KnightTest {
 
     @Test
     public void validMoveShouldReturnFalse(){
-        boolean validMove = knight.validMove(5,7);
+        boolean validMove = knight.validMove(knight.getKnightPosition(),new int[]{5,7});
         Assert.assertFalse(validMove);
     }
 
     @Test
     public void validMoveShouldReturnFalse2(){
-        boolean validMove = knight.validMove(0,7);
+        boolean validMove = knight.validMove(knight.getKnightPosition(),new int[]{0,7});
         Assert.assertFalse(validMove);
     }
 
     @Test
     public void validMoveShouldReturnTrue(){
-        boolean validMove = knight.validMove(2,3);
+        boolean validMove = knight.validMove(knight.getKnightPosition(),new int[]{2,3});
         Assert.assertTrue(validMove);
     }
 
     @Test
     public void possibleMovesPrintedCorrectly() throws IsEmptyException {
-        DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{3,4});
+        DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{5,5});
         knight.printPossibleMoves(possibleMoves);
     }
 }
