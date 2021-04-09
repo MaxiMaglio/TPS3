@@ -6,31 +6,32 @@ import utils.IsEmptyException;
 import java.util.Arrays;
 
 public class Knight {
-    private int[] knightPosition;
-    private int rowPosition;
+    //private int[] knightPosition;
     private int colPosition;
+    private int rowPosition;
     private final int[][] knightMoves = {{-2,-1},{-2,1},{-1,-2},{-1,2},{1,-2},{1,2},{2,-1},{2,1}};  //Possible knight moves
 
-    public Knight(int rowPosition, int colPosition){
+    public Knight(int colPosition, int rowPosition){
+        this.colPosition= colPosition;
         this.rowPosition = rowPosition;
-        this.colPosition = colPosition;
-        this.knightPosition = new int[]{rowPosition, colPosition};
-    }
-
-    public int getColPosition() {
-        return colPosition;
+        //this.knightPosition = new int[]{colPosition rowPosition};
     }
 
     public int getRowPosition() {
         return rowPosition;
     }
 
-    public void moveKnight(int newRowPosition, int newColPosition) {
-        if(validMove(knightPosition, new int[]{newRowPosition, newColPosition})){
-            rowPosition = newRowPosition;
-            colPosition = newColPosition;
-        }
+    public int getColPosition() {
+        return colPosition;
     }
+
+    /*public void moveKnight(int newColPosition int newRowPosition) {
+        if(validMove(knightPosition, new int[]{newColPosition newRowPosition})){
+            colPosition= newColPosition
+            rowPosition = newRowPosition;
+            knightPosition= new int[]{newRowPosition, newColPosition;
+        }
+    }*/
 
     public boolean validMove(int[] position, int[] newPosition){
         if((newPosition[0] < 1 || newPosition[0] > 8) || (newPosition[1] < 1 || newPosition[1] > 8)){
@@ -64,21 +65,28 @@ public class Knight {
     }
 
     public String printJourney(int[] initialPosition, int[] firstJump, int[] secondJump, int[] thirdJump, int[] fourthJump){
-        return Arrays.toString(initialPosition) + " - " +Arrays.toString(firstJump) + " - " + Arrays.toString(secondJump) + " - " + Arrays.toString(thirdJump) + " - " + Arrays.toString(fourthJump);
+        return positionToNotation(initialPosition) + " - " +positionToNotation(firstJump) + " - " + positionToNotation(secondJump) + " - " + positionToNotation(thirdJump) + " - " + positionToNotation(fourthJump);
     }
 
     public String positionToNotation(int[] position){
-        switch (position[0]){
-
-        }
-          return "";
+        return switch (position[0]) {
+            case 1 -> "A" + position[1];
+            case 2 -> "B" + position[1];
+            case 3 -> "C" + position[1];
+            case 4 -> "D" + position[1];
+            case 5 -> "E" + position[1];
+            case 6 -> "F" + position[1];
+            case 7 -> "G" + position[1];
+            case 8 -> "H" + position[1];
+            default -> "";
+        };
     }
 
-    public int[] getKnightPosition() {
+    /*public int[] getKnightPosition() {
         return knightPosition;
-    }
+    }*/
 
-    public void metodoPija(int[] initialPosition) throws IsEmptyException {
+    public void possibleJourneys(int[] initialPosition) throws IsEmptyException {
         DynamicStack<int[]> firstJump = possibleMoves(initialPosition);
         while(!firstJump.isEmpty()){
             DynamicStack<int[]> secondJump = possibleMoves(firstJump.peek());
