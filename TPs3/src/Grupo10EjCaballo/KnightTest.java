@@ -43,6 +43,6 @@ public class KnightTest {
 
     @Test
     public void possibleJourneysPrintedCorrectly() throws IsEmptyException {
-        knight.possibleJourneys(new int[]{5, 5});
+        knight.possibleJourneys(new int[]{1, 1});
     }
 }
