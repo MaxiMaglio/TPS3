@@ -82,7 +82,7 @@ public class Knight {
     }
 
     public String printJourney(int[] initialPosition, int[] firstJump, int[] secondJump, int[] thirdJump, int[] fourthJump) {
-        return positionToNotation(initialPosition) + " - " + positionToNotation(firstJump) + " - " + positionToNotation(secondJump) + " - " + positionToNotation(thirdJump) + " - " + positionToNotation(fourthJump);
+        return positionToNotation(initialPosition) + " - " + positionToNotation(firstJump) + " - " + positionToNotation(secondJump) + " - " + positionToNotation(thirdJump) + " - " + positionToNotation(fourthJump) + "\n";
     }
 
     public String positionToNotation(int[] position) {
@@ -123,24 +123,32 @@ public class Knight {
                                 DynamicStack<int[]> jump2 = createCopyStack(secondJump);
                                 DynamicStack<int[]> jump3 = createCopyStack(thirdJump);
                                 DynamicStack<int[]> jump4 = createCopyStack(fourthJump);
+                                System.out.println("Primera pila:");
                                 printStack(jump1);
+                                System.out.println();
+                                System.out.println("Segunda pila:");
                                 printStack(jump2);
+                                System.out.println();
+                                System.out.println("Tercera pila:");
                                 printStack(jump3);
+                                System.out.println();
+                                System.out.println("Cuarta pila:");
                                 printStack(jump4);
+                                System.out.println();
                                 break;
                             case 3:
                                 String s = possibleJourneys(initialPosition);
                                 System.out.println(s);
                                 return;
                         }
-                        thirdJump.pop();
-                    }
-                    secondJump.pop();
-                }
-                firstJump.pop();
-            }
 
-        }
+                    } thirdJump.pop();
+
+                }secondJump.pop();
+
+            }firstJump.pop();
+
+        } possibleJourneys(initialPosition);
     }
 
     public String possibleJourneys ( int[] initialPosition) throws IsEmptyException {
