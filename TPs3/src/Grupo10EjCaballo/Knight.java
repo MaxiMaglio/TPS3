@@ -26,7 +26,7 @@ public class Knight {
                     DynamicStack<int[]> fourthJump = possibleMovesOfPosition(thirdJump.peek());
                     while (!fourthJump.isEmpty()) {
                         UI.title("MENU");
-                        System.out.println("1. Realizar el siguiente camino\n2. Mostrar el contenido de las pilas\n3. Salir (mostrar todos los caminos)");
+                        System.out.println("\n1. Realizar el siguiente camino\n2. Mostrar el contenido de las pilas\n3. Salir (mostrar todos los caminos)\n");
                         int i = Scanner.getInt("Introduzca su opcion: ");
                         UI.clear();
                         switch (i) {
@@ -40,6 +40,9 @@ public class Knight {
                                 System.out.println(PrintAllPossibleJourneys(initialPosition));
                                 System.out.println("\n\n\n\n @author Maximiliano Maglio, Guido Molaro and Juan Manuel Pérez Menéndez on 4/15/2021.");
                                 return;
+                            default:
+                                UI.message("¡Opcion Incorrecta!");
+
                         }
 
                     } thirdJump.pop();
@@ -126,7 +129,7 @@ public class Knight {
             }
             firstJump.pop();
         }
-        return s + "\n- Hay un total de " + journeyNumber + " caminos posibles empezando desde la posicion " + positionToNotation(initialPosition)+ ".";
+        return s + "\n- Hay un total de " + journeyNumber + " caminos posibles de 4 saltos empezando desde la posicion " + positionToNotation(initialPosition)+ ".";
     }
 
     public String printJourney(int[] initialPosition, int[] firstJump, int[] secondJump, int[] thirdJump, int[] fourthJump) {
