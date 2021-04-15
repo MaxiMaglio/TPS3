@@ -7,15 +7,7 @@ import utils.IsEmptyException;
 
 public class KnightTest {
 
-    Knight knight = new Knight(1,1);
-
-    /*@Test
-    public void movedKnightCorrectly() {
-        knight.moveKnight(3,2);
-        int[] expected = {3,2};
-        Assert.assertArrayEquals(expected, new int[]{knight.getRowPosition(), knight.getColPosition()});
-
-    }*/
+    Knight knight = new Knight();
 
     @Test
     public void validMoveShouldReturnFalse(){
@@ -37,27 +29,26 @@ public class KnightTest {
 
     @Test
     public void possibleMovesPrintedCorrectly() throws IsEmptyException {
-        DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{5,5});
+        DynamicStack<int[]> possibleMoves = knight.possibleMovesOfPosition(new int[]{5,5});
         knight.printStack(possibleMoves);
     }
 
     @Test
     public void possibleJourneysPrintedCorrectly() throws IsEmptyException {
-        knight.possibleJourneys(new int[]{1, 1});
+        knight.PrintAllPossibleJourneys(new int[]{1, 1});
     }
 
     @Test
     public void stackCopiedCorrectly() throws IsEmptyException{
-        DynamicStack<int[]> stack = knight.possibleMoves(new int[]{5,5});
+        DynamicStack<int[]> stack = knight.possibleMovesOfPosition(new int[]{5,5});
         DynamicStack<int[]> copyStack = knight.createCopyStack(stack);
         knight.printStack(stack);
         System.out.println("");
         knight.printStack(copyStack);
-
     }
 
     @Test
     public void menuTest() throws IsEmptyException{
-        knight.menu(new int[]{1,1});
+        knight.knightMenu(new int[]{1,1});
     }
 }
