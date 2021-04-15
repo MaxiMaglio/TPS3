@@ -126,11 +126,11 @@ public class Knight {
             }
             firstJump.pop();
         }
-        return s + " \n - Hay un total de " + journeyNumber + " caminos posibles desde la posicion " + positionToNotation(initialPosition)+ ".";
+        return s + "\n- Hay un total de " + journeyNumber + " caminos posibles empezando desde la posicion " + positionToNotation(initialPosition)+ ".";
     }
 
     public String printJourney(int[] initialPosition, int[] firstJump, int[] secondJump, int[] thirdJump, int[] fourthJump) {
-        return " " + positionToNotation(initialPosition) + " > " + positionToNotation(firstJump) + " > " + positionToNotation(secondJump) + " > " + positionToNotation(thirdJump) + " > " + positionToNotation(fourthJump)+ "\n";
+        return "  " + positionToNotation(initialPosition) + " --> " + positionToNotation(firstJump) + " --> " + positionToNotation(secondJump) + " --> " + positionToNotation(thirdJump) + " --> " + positionToNotation(fourthJump)+ "\n";
     }
 
     public String printStacks(DynamicStack<int[]> firstJump,DynamicStack<int[]> secondJump,DynamicStack<int[]> thirdJump,DynamicStack<int[]> fourthJump) throws IsEmptyException {
