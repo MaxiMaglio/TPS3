@@ -1,5 +1,5 @@
 package practica_0;
-import util.Scanner;
+import utils.Scanner;
 
 public class Ejercicio_0_1 {
 

@@ -38,11 +38,26 @@ public class KnightTest {
     @Test
     public void possibleMovesPrintedCorrectly() throws IsEmptyException {
         DynamicStack<int[]> possibleMoves = knight.possibleMoves(new int[]{5,5});
-        knight.printPossibleMoves(possibleMoves);
+        knight.printStack(possibleMoves);
     }
 
     @Test
     public void possibleJourneysPrintedCorrectly() throws IsEmptyException {
         knight.possibleJourneys(new int[]{1, 1});
+    }
+
+    @Test
+    public void stackCopiedCorrectly() throws IsEmptyException{
+        DynamicStack<int[]> stack = knight.possibleMoves(new int[]{5,5});
+        DynamicStack<int[]> copyStack = knight.createCopyStack(stack);
+        knight.printStack(stack);
+        System.out.println("");
+        knight.printStack(copyStack);
+
+    }
+
+    @Test
+    public void menuTest() throws IsEmptyException{
+        knight.menu(new int[]{1,1});
     }
 }

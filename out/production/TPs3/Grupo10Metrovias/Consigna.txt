@@ -1,0 +1,20 @@
+Metrovías necesita conocer la performance del sistema de ventas y el
+control de pasajeros. Para ello es necesario la siguiente información:
+1) Tiempo medio de espera de los pasajeros de cada ventanilla.
+2) Monto total recaudado de cada ventanilla.
+3) Guardar en una pila todos los números de tickets con su
+correspondiente tiempo de atención. Es una pila que tiene que
+contener las personas atendidas de todas las ventanillas.
+El departamento de estadística informó que:
+– Llegan 5 personas juntas cada 30 segundos y cada una elige una
+ventanilla al azar. Hay un 50 % de probabilidad de que, cada 30 segundos,
+se atienda a la persona que está en la ventanilla, en cada ventanilla.
+– Puede ser que algunas de las 5 personas elijan la misma ventanilla.
+Cada vez que se presiona “1” se avanza 30 segundos. Cuando se presiona
+“2”, se termina la simulación.
+El número de ventanillas a simular se debe ingresar al comienzo de la
+ejecución. Deberá ser entre 5 y 25.
+El número de ticket puede estar repetido y es un entero de 5 dígitos.
+Al finalizar la simulación el programa ejecutará un método
+(mostrarPila(Pila p)) que listará los datos de la pila del item 3). No hay
+que implementar este método, sólo llamarlo.
