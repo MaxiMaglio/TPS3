@@ -9,6 +9,7 @@ public class Simulation {
     static public Subway subway;
 
 
+
     public void advanceSimulation () throws IsEmptyException {
         actualTime+=30;
         for (int i = 0; i < 5; i++) {
