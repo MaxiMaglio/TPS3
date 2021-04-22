@@ -4,7 +4,7 @@ import StacksAndQueues.DynamicQueue;
 import utils.IsEmptyException;
 
 public class Window {
-    private StacksAndQueues.DynamicQueue<Passenger> pQueue;
+    private StacksAndQueues.DynamicQueue<Passenger> pQueue = new DynamicQueue<>();
     private int amountCollected;
     private Ticket[] archivedTickets;
 

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Simulation {
     static private int actualTime = 0;
-    private Subway subway;
+    static public Subway subway;
 
 
     public void advanceSimulation () throws IsEmptyException {

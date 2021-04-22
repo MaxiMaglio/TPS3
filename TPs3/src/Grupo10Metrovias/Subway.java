@@ -3,19 +3,19 @@ package Grupo10Metrovias;
 import StacksAndQueues.DynamicStack;
 
 public class Subway {
-    private Window[] windows;
-    private StacksAndQueues.DynamicStack<Ticket> tickets;
-    private int ticketPrice;
+    static private Window[] windows;
+    static private StacksAndQueues.DynamicStack<Ticket> tickets;
+    static private int ticketPrice;
     
-    public void saveTicket (Ticket ticket){
+    static public void saveTicket (Ticket ticket){
         tickets.stack(ticket);
     }
 
-    public int getTicketPrice() {
+    static public int getTicketPrice() {
         return ticketPrice;
     }
 
-    static Window[] getWindows() {
+    public static Window[] getWindows() {
         return windows;
     }
 
