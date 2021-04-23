@@ -1,6 +1,7 @@
 package Grupo10Metrovias;
 
 import StacksAndQueues.DynamicStack;
+import utils.IsEmptyException;
 
 import java.util.Random;
 
@@ -10,35 +11,56 @@ public class Subway {
     private int windowQty;
 
     public Subway(int windowQty){
-        windows = new Window[windowQty];
+        this.windows = new Window[windowQty];
         for (int i = 0; i <windowQty; i++) {
             windows[i] = new Window();
         }
-        windowQty = windowQty;
+        this.tickets = new DynamicStack<>();
+        this.windowQty = windowQty;
     }
 
 
-    static public void saveTicket (Ticket ticket){
+    public void saveTicket(Ticket ticket){
         tickets.stack(ticket);
     }
 
-    public void passengersArrival(){
+    public void passengersArrival(int time){
         for (int i = 0; i < 4; i++) {
-            int windowChoice = (int)(new Random().nextInt(windowQty)+1);
+            int windowChoice = (int)(new Random().nextInt(windowQty));
             int ticketID = (int)(10000*Math.random());
-            windows[windowChoice].enqueueP(new Passenger(ticketID));
+            windows[windowChoice].enqueueP(new Passenger(ticketID,time));
         }
     }
 
-    public static Window[] getWindows() {
+    public void passengerCheckout(int actualTime) throws IsEmptyException {
+        for (int i = 0; i < windows.length; i++) {
+            if(Math.random()>0.5) {
+                if (!windows[i].getpQueue().isEmpty()) {
+                    Passenger p = windows[i].attendPassenger();
+                    Ticket ticket = generateTicket(p,actualTime);
+                    tickets.stack(ticket);
+                    windows[i].archiveTickets(ticket);
+                }
+            }
+        }
+    }
+
+    public Ticket generateTicket(Passenger p, int actualTime){
+        Ticket ticket = new Ticket(p, actualTime);
+        return ticket;
+    }
+
+    public  Window[] getWindows() {
         return windows;
     }
 
-    public static DynamicStack<Ticket> getTickets() {
+    public  DynamicStack<Ticket> getTickets() {
         return tickets;
     }
 
-    public static void setWindowsQuantity(int quantity) {
+    public  void setWindowsQuantity(int quantity) {
         windows = new Window[quantity];
     }
+
+
 }

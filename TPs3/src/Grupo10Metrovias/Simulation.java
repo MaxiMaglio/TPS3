@@ -12,14 +12,8 @@ public class Simulation {
 
     public void advanceSimulation () throws IsEmptyException {
         actualTime+=30;
-        for (int i = 0; i < 5; i++) {
-            Subway.getWindows()[new Random().nextInt(Subway.getWindows().length)].getpQueue().enqueue(new Passenger(actualTime));
-        }
-        for (int i = 0; i < Subway.getWindows().length; i++) {
-            if (Math.random() > 0.5){
-                Subway.getWindows()[i].attendPassenger();
-            }
-        }
+        subway.passengersArrival(actualTime);
+        subway.passengerCheckout(actualTime);
     }
 
     public void runSimulation() throws IsEmptyException {
@@ -27,19 +21,17 @@ public class Simulation {
         do {
             quantity = Scanner.getInt(" Ingrese la cantidad de ventanas para la simulacion: ");
         }while(quantity > 25 || quantity < 5);
-        Subway.setWindowsQuantity(quantity);
+        subway = new Subway(quantity);
         int opcion;
         do {
             opcion = Scanner.getInt("Menu:\n1. Avanzar 30s de simulacion\n2. Finalizar simulacion");
             if (opcion == 1) advanceSimulation();
         }while(opcion !=2);
-        Subway.getTickets().printStack();
+        subway.getTickets().printStack();
+        for (int i = 0; i < subway.getWindows().length; i++) {
+            double avgTimeWaited = subway.getWindows()[i].averageTimeWaited();
+            int amountCollected = subway.getWindows()[i].getAmountCollected();
+            System.out.println("\nLa ventana " + (i+1) + " recolecto: $" + amountCollected + "\n Tiempo promedio de espera: " + avgTimeWaited + " segundos \n");
+        }
     }
-
-
-    static public int getActualTime() {
-        return actualTime;
-    }
-
-
 }

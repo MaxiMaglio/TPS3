@@ -1,36 +1,49 @@
 package Grupo10Metrovias;
 
 import StacksAndQueues.DynamicQueue;
+import StacksAndQueues.DynamicStack;
 import utils.IsEmptyException;
 
 public class Window {
     private StacksAndQueues.DynamicQueue<Passenger> pQueue = new DynamicQueue<>();
     private int amountCollected;
-    private Ticket[] archivedTickets;
+    private DynamicStack<Ticket> archivedTickets = new DynamicStack<>();
 
-    public void attendPassenger() throws IsEmptyException {
+    public Passenger attendPassenger() throws IsEmptyException {
         if (!pQueue.isEmpty()){
             Passenger attendedP = pQueue.dequeue();
-            Ticket ticket = generateTicket(attendedP);
-            storeTicket(ticket);
-            amountCollected += Subway.getTicketPrice();
+            amountCollected += 5;
+            return attendedP;
+        }else{
+            return null;
         }
+    }
+
+    public void archiveTickets(Ticket ticket){
+        archivedTickets.stack(ticket);
     }
 
     public void enqueueP(Passenger p){
         pQueue.enqueue(p);
-        amountCollected+= 5;
     }
 
-    public double getAverageTimeWaited(){
+    public double averageTimeWaited() throws IsEmptyException {
         int totalWaitedTime = 0;
-        for (int i = 0; i < archivedTickets.length; i++) {
-            totalWaitedTime += archivedTickets[i].getTimeWaited();
+        int totalTickets = archivedTickets.size();
+        while (!archivedTickets.isEmpty()) {
+            totalWaitedTime += archivedTickets.peek().getTimeWaited();
+            archivedTickets.pop();
         }
-        if (totalWaitedTime == 0) return 0;
-        else return totalWaitedTime / archivedTickets.length;
+        if (totalTickets != 0) {
+            return totalWaitedTime / totalTickets;
+        }else{
+            return 0;
+        }
     }
 
+    public int getAmountCollected(){
+        return amountCollected;
+    }
     public DynamicQueue<Passenger> getpQueue() {
         return pQueue;
     }
