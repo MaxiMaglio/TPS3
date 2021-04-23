@@ -1,13 +1,13 @@
 package Grupo10Metrovias;
 
 public class Ticket {
-    private int idNumber;
+
     private Passenger passenger;
     private int timeWaited;
-    public Ticket (Passenger passenger, int timeWaited, int idNumber){
+
+    public Ticket (Passenger passenger, int actualTime){
         this.passenger = passenger;
-        this.timeWaited = timeWaited;
-        this.idNumber = idNumber;
+        this.timeWaited = actualTime - passenger.getInitialTime();
     }
 
     public int getTimeWaited() {
