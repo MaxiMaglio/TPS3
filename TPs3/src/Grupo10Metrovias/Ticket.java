@@ -13,4 +13,8 @@ public class Ticket {
     public int getTimeWaited() {
         return timeWaited;
     }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
 }

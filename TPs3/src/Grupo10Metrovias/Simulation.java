@@ -11,8 +11,8 @@ public class Simulation {
 
 
     public void advanceSimulation () throws IsEmptyException {
-        actualTime+=30;
         subway.passengersArrival(actualTime);
+        actualTime+=30;
         subway.passengerCheckout(actualTime);
     }
 
@@ -27,7 +27,7 @@ public class Simulation {
             opcion = Scanner.getInt("Menu:\n1. Avanzar 30s de simulacion\n2. Finalizar simulacion");
             if (opcion == 1) advanceSimulation();
         }while(opcion !=2);
-        subway.getTickets().printStack();
+        subway.printTickets();
         for (int i = 0; i < subway.getWindows().length; i++) {
             double avgTimeWaited = subway.getWindows()[i].averageTimeWaited();
             int amountCollected = subway.getWindows()[i].getAmountCollected();
