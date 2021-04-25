@@ -2,10 +2,8 @@ package Grupo10Metrovias;
 
 public class Passenger {
     private int initialTime;
-    private int ticketID;
 
-    public Passenger(int ticketID, int initialTime) {
-        this.ticketID = ticketID;
+    public Passenger(int initialTime) {
         this.initialTime = initialTime;
     }
 
@@ -15,7 +13,4 @@ public class Passenger {
         return initialTime;
     }
 
-    public int getTicketID() {
-        return ticketID;
-    }
 }

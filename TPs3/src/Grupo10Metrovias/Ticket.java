@@ -4,8 +4,10 @@ public class Ticket {
 
     private Passenger passenger;
     private int timeWaited;
+    private int ticketID;
 
-    public Ticket (Passenger passenger, int actualTime){
+    public Ticket (int ticketID, Passenger passenger, int actualTime){
+        this.ticketID = ticketID;
         this.passenger = passenger;
         this.timeWaited = actualTime - passenger.getInitialTime();
     }
@@ -16,5 +18,9 @@ public class Ticket {
 
     public Passenger getPassenger() {
         return passenger;
+    }
+
+    public int getTicketID() {
+        return ticketID;
     }
 }

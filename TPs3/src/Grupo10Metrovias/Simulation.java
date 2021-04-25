@@ -19,6 +19,7 @@ public class Simulation {
     public void runSimulation() throws IsEmptyException {
         int quantity;
         do {
+
             quantity = Scanner.getInt(" Ingrese la cantidad de ventanas para la simulacion: ");
         }while(quantity > 25 || quantity < 5);
         subway = new Subway(quantity);

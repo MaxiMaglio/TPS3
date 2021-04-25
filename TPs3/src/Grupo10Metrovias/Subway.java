@@ -25,10 +25,9 @@ public class Subway {
     }
 
     public void passengersArrival(int time){
-        for (int i = 0; i < 4; i++) {
-            int windowChoice = (int)(new Random().nextInt(windowQty));
-            int ticketID = (int)(100000*Math.random());
-            windows[windowChoice].enqueueP(new Passenger(ticketID,time));
+        for (int i = 0; i < 5; i++) {
+            int windowChoice = (new Random().nextInt(windowQty));
+            windows[windowChoice].enqueueP(new Passenger(time));
         }
     }
 
@@ -46,8 +45,8 @@ public class Subway {
     }
 
     public Ticket generateTicket(Passenger p, int actualTime){
-        Ticket ticket = new Ticket(p, actualTime);
-        return ticket;
+        int ticketID = (int)(100000*Math.random());
+        return new Ticket(ticketID,p, actualTime);
     }
 
     public  Window[] getWindows() {
@@ -65,7 +64,7 @@ public class Subway {
     public void printTickets() throws IsEmptyException {
         int i = 0;
         while(!tickets.isEmpty()){
-            System.out.println("Ticket Nro: " + tickets.peek().getPassenger().getTicketID() + "\nTiempo de espera: " + tickets.peek().getTimeWaited() + " segundos\n");
+            System.out.println("Ticket Nro: " + tickets.peek().getTicketID() + "\nTiempo de espera: " + tickets.peek().getTimeWaited() + " segundos\n");
             tickets.pop();
         }
     }
