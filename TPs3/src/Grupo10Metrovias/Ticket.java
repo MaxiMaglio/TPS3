@@ -1,16 +1,26 @@
 package Grupo10Metrovias;
 
 public class Ticket {
-    private int idNumber;
+
     private Passenger passenger;
     private int timeWaited;
-    public Ticket (Passenger passenger, int timeWaited, int idNumber){
+    private int ticketID;
+
+    public Ticket (int ticketID, Passenger passenger, int actualTime){
+        this.ticketID = ticketID;
         this.passenger = passenger;
-        this.timeWaited = timeWaited;
-        this.idNumber = idNumber;
+        this.timeWaited = actualTime - passenger.getInitialTime();
     }
 
     public int getTimeWaited() {
         return timeWaited;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public int getTicketID() {
+        return ticketID;
     }
 }

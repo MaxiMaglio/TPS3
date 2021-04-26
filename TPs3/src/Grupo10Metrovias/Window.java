@@ -1,48 +1,51 @@
 package Grupo10Metrovias;
 
 import StacksAndQueues.DynamicQueue;
+import StacksAndQueues.DynamicStack;
 import utils.IsEmptyException;
 
 public class Window {
     private StacksAndQueues.DynamicQueue<Passenger> pQueue = new DynamicQueue<>();
     private int amountCollected;
-    private Ticket[] archivedTickets;
+    private DynamicStack<Ticket> archivedTickets = new DynamicStack<>();
 
-    public Ticket generateTicket(Passenger passenger) {
-        int idNumber = (int) (Math.random() * 10000);
-        int timeWaited = Simulation.getActualTime() - passenger.getInitialTime();
-        return new Ticket(passenger, timeWaited, idNumber);
-    }
-
-    public void attendPassenger() throws IsEmptyException {
+    public Passenger attendPassenger() throws IsEmptyException {
         if (!pQueue.isEmpty()){
             Passenger attendedP = pQueue.dequeue();
-            Ticket ticket = generateTicket(attendedP);
-            storeTicket(ticket);
-            amountCollected += Subway.getTicketPrice();
+            amountCollected += 5;
+            return attendedP;
+        }else{
+            return null;
         }
     }
 
-    private void storeTicket(Ticket ticket){
-        Subway.saveTicket(ticket);
-        Ticket[] updatedArchivedTickets = new Ticket[archivedTickets.length+1];
-        for (int i = 0; i < archivedTickets.length; i++) {
-            updatedArchivedTickets[i] = archivedTickets[i];
-        }
-        updatedArchivedTickets[archivedTickets.length] = ticket;
-        archivedTickets = updatedArchivedTickets;
+    public void archiveTickets(Ticket ticket){
+        archivedTickets.stack(ticket);
     }
 
-    public double getAverageTimeWaited(){
+    public void enqueueP(Passenger p){
+        pQueue.enqueue(p);
+    }
+
+    public double averageTimeWaited() throws IsEmptyException {
         int totalWaitedTime = 0;
-        for (int i = 0; i < archivedTickets.length; i++) {
-            totalWaitedTime += archivedTickets[i].getTimeWaited();
+        int totalTickets = archivedTickets.size();
+        while (!archivedTickets.isEmpty()) {
+            totalWaitedTime += archivedTickets.peek().getTimeWaited();
+            archivedTickets.pop();
         }
-        if (totalWaitedTime == 0) return 0;
-        else return totalWaitedTime / archivedTickets.length;
+        if (totalTickets != 0) {
+            return totalWaitedTime / totalTickets;
+        }else{
+            return 0;
+        }
     }
 
-    public DynamicQueue<Passenger> getpQueue() {
+    public int getAmountCollected(){
+        return amountCollected;
+    }
+
+    public DynamicQueue<Passenger> getPQueue() {
         return pQueue;
     }
 }

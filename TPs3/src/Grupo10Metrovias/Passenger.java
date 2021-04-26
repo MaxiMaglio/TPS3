@@ -7,7 +7,10 @@ public class Passenger {
         this.initialTime = initialTime;
     }
 
+
+
     public int getInitialTime() {
         return initialTime;
     }
+
 }
