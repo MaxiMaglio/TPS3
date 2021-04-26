@@ -2,6 +2,7 @@ package Grupo10Metrovias;
 
 import StacksAndQueues.DynamicStack;
 import utils.IsEmptyException;
+import utils.UI;
 
 import java.util.Random;
 
@@ -61,11 +62,22 @@ public class Subway {
         windows = new Window[quantity];
     }
 
-    public void printTickets() throws IsEmptyException {
-        int i = 0;
+    public void printTicketsInfo() throws IsEmptyException {
+        UI.message("Informacion de tickets registrados");
+        System.out.println(" (Nro de ticket) -> [Tiempo de espera]\n");
         while(!tickets.isEmpty()){
-            System.out.println("Ticket Nro: " + tickets.peek().getTicketID() + "\nTiempo de espera: " + tickets.peek().getTimeWaited() + " segundos\n");
-            tickets.pop();
+                if (!tickets.isEmpty()) {
+                    System.out.println("\t\t (" + tickets.peek().getTicketID() + ") -> [" + tickets.peek().getTimeWaited() + "s]");;
+                    tickets.pop();
+                }
+        }
+    }
+
+    public void printWindowsInfo() throws IsEmptyException {
+        UI.message("Informacion de las ventanillas");
+        System.out.println(" [Nro de ventanilla] -> $ monto recaudado ~ (Tiempo promedio de espera)\n");
+        for (int i = 0; i < windows.length; i++) {
+            System.out.println("\t\t [" + (i+1) + "] -> $" + windows[i].getAmountCollected() + " ~ (" + windows[i].averageTimeWaited() + "s)");
         }
     }
 
