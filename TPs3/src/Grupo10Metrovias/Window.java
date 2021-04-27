@@ -44,7 +44,8 @@ public class Window {
     public int getAmountCollected(){
         return amountCollected;
     }
-    public DynamicQueue<Passenger> getpQueue() {
+
+    public DynamicQueue<Passenger> getPQueue() {
         return pQueue;
     }
 }

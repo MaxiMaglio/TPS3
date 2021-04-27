@@ -2,6 +2,7 @@ package Grupo10Metrovias;
 
 import StacksAndQueues.DynamicStack;
 import utils.IsEmptyException;
+import utils.UI;
 
 import java.util.Random;
 
@@ -25,17 +26,16 @@ public class Subway {
     }
 
     public void passengersArrival(int time){
-        for (int i = 0; i < 4; i++) {
-            int windowChoice = (int)(new Random().nextInt(windowQty));
-            int ticketID = (int)(10000*Math.random());
-            windows[windowChoice].enqueueP(new Passenger(ticketID,time));
+        for (int i = 0; i < 5; i++) {
+            int windowChoice = (new Random().nextInt(windowQty));
+            windows[windowChoice].enqueueP(new Passenger(time));
         }
     }
 
     public void passengerCheckout(int actualTime) throws IsEmptyException {
         for (int i = 0; i < windows.length; i++) {
             if(Math.random()>0.5) {
-                if (!windows[i].getpQueue().isEmpty()) {
+                if (!windows[i].getPQueue().isEmpty()) {
                     Passenger p = windows[i].attendPassenger();
                     Ticket ticket = generateTicket(p,actualTime);
                     tickets.stack(ticket);
@@ -46,8 +46,8 @@ public class Subway {
     }
 
     public Ticket generateTicket(Passenger p, int actualTime){
-        Ticket ticket = new Ticket(p, actualTime);
-        return ticket;
+        int ticketID = (int)(100000*Math.random());
+        return new Ticket(ticketID,p, actualTime);
     }
 
     public  Window[] getWindows() {
@@ -62,5 +62,23 @@ public class Subway {
         windows = new Window[quantity];
     }
 
+    public void printTicketsInfo() throws IsEmptyException {
+        UI.message("Informacion de tickets registrados");
+        System.out.println(" (Nro de ticket) -> [Tiempo de espera]\n");
+        while(!tickets.isEmpty()){
+                if (!tickets.isEmpty()) {
+                    System.out.println("\t\t (" + tickets.peek().getTicketID() + ") -> [" + tickets.peek().getTimeWaited() + "s]");;
+                    tickets.pop();
+                }
+        }
+    }
+
+    public void printWindowsInfo() throws IsEmptyException {
+        UI.message("Informacion de las ventanillas");
+        System.out.println(" [Nro de ventanilla] -> $ monto recaudado ~ (Tiempo promedio de espera)\n");
+        for (int i = 0; i < windows.length; i++) {
+            System.out.println("\t\t [" + (i+1) + "] -> $" + windows[i].getAmountCollected() + " ~ (" + windows[i].averageTimeWaited() + "s)");
+        }
+    }
 
 }

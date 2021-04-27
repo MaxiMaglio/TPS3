@@ -1,7 +1,10 @@
 package Grupo10Metrovias;
 
+import StacksAndQueues.DynamicStack;
 import utils.IsEmptyException;
 import utils.Scanner;
+import utils.UI;
+
 import java.util.Random;
 
 public class Simulation {
@@ -11,27 +14,37 @@ public class Simulation {
 
 
     public void advanceSimulation () throws IsEmptyException {
-        actualTime+=30;
         subway.passengersArrival(actualTime);
+        actualTime+=30;
         subway.passengerCheckout(actualTime);
     }
 
     public void runSimulation() throws IsEmptyException {
+        UI.clear();
         int quantity;
         do {
-            quantity = Scanner.getInt(" Ingrese la cantidad de ventanas para la simulacion: ");
+            UI.title("Grupo 10 ~ Metrovias");
+            quantity = Scanner.getInt("\n\n\n Ingrese la cantidad de ventanillas que desea simular: ");
+            UI.clear();
+            if(quantity > 25 || quantity < 5){
+                UI.message("La cantidad de ventanas debe ser entre 5 y 25");
+            }
         }while(quantity > 25 || quantity < 5);
         subway = new Subway(quantity);
         int opcion;
         do {
-            opcion = Scanner.getInt("Menu:\n1. Avanzar 30s de simulacion\n2. Finalizar simulacion");
+            UI.clear();
+            UI.title("MENU");
+            System.out.println("Tiempo de simulacion transcurrido: " + actualTime + "s. ⏱");
+            opcion = Scanner.getInt("\n1. Avanzar 30s de simulacion\n2. Finalizar simulacion\n\nIntroduzca su opcion: ");
             if (opcion == 1) advanceSimulation();
         }while(opcion !=2);
-        subway.getTickets().printStack();
-        for (int i = 0; i < subway.getWindows().length; i++) {
-            double avgTimeWaited = subway.getWindows()[i].averageTimeWaited();
-            int amountCollected = subway.getWindows()[i].getAmountCollected();
-            System.out.println("\nLa ventana " + (i+1) + " recolecto: $" + amountCollected + "\n Tiempo promedio de espera: " + avgTimeWaited + " segundos \n");
-        }
+        UI.clear();
+        UI.title("Informacion de la simulacion");
+        System.out.println();
+        subway.printTicketsInfo();
+        System.out.println();
+        subway.printWindowsInfo();
     }
 }
+
