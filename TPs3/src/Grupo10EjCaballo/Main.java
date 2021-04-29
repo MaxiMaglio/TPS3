@@ -1,8 +1,5 @@
 package Grupo10EjCaballo;
 
-import utils.IsEmptyException;
-import utils.Scanner;
-import utils.UI;
 
 public class Main {
     public static void main(String[] args) throws IsEmptyException {

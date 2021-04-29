@@ -1,9 +1,7 @@
 package Grupo10EjCaballo;
 
-import StacksAndQueues.DynamicStack;
 import org.junit.Assert;
 import org.junit.Test;
-import utils.IsEmptyException;
 
 public class KnightTest {
 
