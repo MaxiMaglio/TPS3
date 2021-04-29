@@ -4,10 +4,6 @@ package Grupo10EjCaballo;
 @author Maximiliano Maglio, Guido Molaro and Juan Manuel Pérez Menéndez on 4/15/2021."
  **/
 
-import StacksAndQueues.DynamicStack;
-import utils.Scanner;
-import utils.IsEmptyException;
-import utils.UI;
 
 import java.util.Arrays;
 
