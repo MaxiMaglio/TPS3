@@ -45,9 +45,15 @@ public class Subway {
         }
     }
 
-    public Ticket generateTicket(Passenger p, int actualTime){
-        int ticketID = (int)(100000*Math.random());
-        return new Ticket(ticketID,p, actualTime);
+    public Ticket generateTicket(Passenger p, int actualTime) {
+        double number = (Math.random());
+        int ticketID;
+        if (number < 0.1) {
+            ticketID = (int) ((number+ 0.1) * 100000);
+        } else {
+            ticketID = (int) (number * 100000);
+        }
+        return new Ticket(ticketID, p, actualTime);
     }
 
     public  Window[] getWindows() {

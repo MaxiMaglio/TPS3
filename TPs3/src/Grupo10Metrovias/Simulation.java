@@ -42,9 +42,9 @@ public class Simulation {
         UI.clear();
         UI.title("Informacion de la simulacion");
         System.out.println();
-        subway.printTicketsInfo();
-        System.out.println();
         subway.printWindowsInfo();
+        System.out.println();
+        subway.printTicketsInfo();
     }
 }
 
