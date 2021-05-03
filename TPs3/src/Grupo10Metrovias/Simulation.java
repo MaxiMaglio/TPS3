@@ -1,11 +1,5 @@
 package Grupo10Metrovias;
 
-import StacksAndQueues.DynamicStack;
-import utils.IsEmptyException;
-import utils.Scanner;
-import utils.UI;
-
-import java.util.Random;
 
 public class Simulation {
     static private int actualTime = 0;

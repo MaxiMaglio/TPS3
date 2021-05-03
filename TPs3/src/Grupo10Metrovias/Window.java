@@ -1,15 +1,12 @@
 package Grupo10Metrovias;
 
-import StacksAndQueues.DynamicQueue;
-import StacksAndQueues.DynamicStack;
-import utils.IsEmptyException;
 
 public class Window {
-    private StacksAndQueues.DynamicQueue<Passenger> pQueue = new DynamicQueue<>();
+    private DynamicQueue<Passenger> pQueue = new DynamicQueue<>();
     private int amountCollected;
     private DynamicStack<Ticket> archivedTickets = new DynamicStack<>();
 
-    public Passenger attendPassenger() throws IsEmptyException {
+    public Passenger attendPassenger() throws IsEmptyException{
         if (!pQueue.isEmpty()){
             Passenger attendedP = pQueue.dequeue();
             amountCollected += 5;

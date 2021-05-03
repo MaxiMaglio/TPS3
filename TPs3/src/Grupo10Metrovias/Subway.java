@@ -1,14 +1,10 @@
 package Grupo10Metrovias;
 
-import StacksAndQueues.DynamicStack;
-import utils.IsEmptyException;
-import utils.UI;
-
 import java.util.Random;
 
 public class Subway {
     private Window[] windows;
-    private StacksAndQueues.DynamicStack<Ticket> tickets;
+    private DynamicStack<Ticket> tickets;
     private int windowQty;
 
     public Subway(int windowQty){
