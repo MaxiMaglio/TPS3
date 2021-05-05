@@ -1,4 +1,4 @@
-package BinarySearchTree;
+package ComparacionBST;
 
 /**
  * @author Maxi Maglio on 4/13/2021.

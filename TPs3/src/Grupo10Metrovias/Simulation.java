@@ -1,11 +1,5 @@
 package Grupo10Metrovias;
 
-import StacksAndQueues.DynamicStack;
-import utils.IsEmptyException;
-import utils.Scanner;
-import utils.UI;
-
-import java.util.Random;
 
 public class Simulation {
     static private int actualTime = 0;
@@ -42,9 +36,9 @@ public class Simulation {
         UI.clear();
         UI.title("Informacion de la simulacion");
         System.out.println();
-        subway.printTicketsInfo();
-        System.out.println();
         subway.printWindowsInfo();
+        System.out.println();
+        subway.printTicketsInfo();
     }
 }
 

@@ -1,14 +1,10 @@
 package Grupo10Metrovias;
 
-import StacksAndQueues.DynamicStack;
-import utils.IsEmptyException;
-import utils.UI;
-
 import java.util.Random;
 
 public class Subway {
     private Window[] windows;
-    private StacksAndQueues.DynamicStack<Ticket> tickets;
+    private DynamicStack<Ticket> tickets;
     private int windowQty;
 
     public Subway(int windowQty){
@@ -45,9 +41,15 @@ public class Subway {
         }
     }
 
-    public Ticket generateTicket(Passenger p, int actualTime){
-        int ticketID = (int)(100000*Math.random());
-        return new Ticket(ticketID,p, actualTime);
+    public Ticket generateTicket(Passenger p, int actualTime) {
+        double number = (Math.random());
+        int ticketID;
+        if (number < 0.1) {
+            ticketID = (int) ((number+ 0.1) * 100000);
+        } else {
+            ticketID = (int) (number * 100000);
+        }
+        return new Ticket(ticketID, p, actualTime);
     }
 
     public  Window[] getWindows() {
