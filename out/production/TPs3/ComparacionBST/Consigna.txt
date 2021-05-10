@@ -1,0 +1,13 @@
+a) Generar 1000 números random que pertenezcan al intervalo [1, 100000] y guardarlos
+en un arreglo. Con ellos construir un árbol binario de búsqueda no balanceado, un
+árbol AVL y un árbol rojinegro. Para estudiar la eficiencia de cada uno:
+b) Calcular el tiempo que tarda la construcción de cada árbol.
+c) Calcular la altura de cada uno.
+d) De los 1000 números elegir 10 (por ejemplo, el que ocupa la posición 0, 100, 200, etc),
+buscarlos en cada árbol y contar la cantidad de intentos que realiza el algoritmo de
+búsqueda hasta encontrarlos. Armar y mostrar una tabla como se muestra en el
+siguiente ejemplo.
+e) Repetir los puntos anteriores 10 veces (excepto mostrar la tabla) e informar:
+Tiempo promedio que tarda en construir cada árbol
+Altura promedio de cada uno
+Promedio de intentos
