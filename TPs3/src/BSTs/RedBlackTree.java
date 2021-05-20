@@ -401,7 +401,7 @@ public class RedBlackTree<T> {
         fixInsert(node);
     }
 
-    public RedBlackNode getRoot() {
+    public RedBlackNode<T> getRoot() {
         return this.root;
     }
 
@@ -421,14 +421,18 @@ public class RedBlackTree<T> {
 
     public RedBlackTree<T> getLeft() {
         RedBlackTree<T> t = new RedBlackTree<T>();
-        t.root = root.left;
-        return t;
+        if (root.left.data != null){
+            t.root = root.left;
+            return t;
+        }return null;
     }
 
     public RedBlackTree<T> getRight() {
         RedBlackTree<T> t = new RedBlackTree<T>();
-        t.root = root.right;
-        return t;
+        if (root.right.data != null){
+            t.root = root.right;
+            return t;
+        }return null;
     }
 
     public int height(RedBlackTree<T> tree) {
@@ -466,5 +470,6 @@ public class RedBlackTree<T> {
     {
         return getLevelUtil(node, data, 1);
     }
+
 
 }

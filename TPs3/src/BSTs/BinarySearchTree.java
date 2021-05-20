@@ -62,8 +62,12 @@ public class BinarySearchTree<T> {
     }
 
     // precondición: árbol distino de vacío
-    public T getRoot() {
+    public T getRootData() {
         return root.data;
+    }
+
+    public DoubleNode<T> getRoot() {
+        return root;
     }
 
     // precondición: árbol distino de vacío

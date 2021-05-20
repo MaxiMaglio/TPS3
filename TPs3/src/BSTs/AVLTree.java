@@ -217,4 +217,7 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         return root == null;
     }
 
+    public NodeAVL<T> getAVLRoot() {
+        return root;
+    }
 }
