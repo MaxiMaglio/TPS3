@@ -33,7 +33,7 @@ public class Comparation {
         int[] bstAttemps = new int[10];
         int[] rbtAttemps = new int[10];
         for (int i = 0; i < randomSelected.length; i++) {
-            avlAttemps[i] = avlTree.getLevel(avlTree.getAVLRoot(), randomSelected[i]);
+            avlAttemps[i] = avlTree.getLevel(avlTree.getRoot(), randomSelected[i]);
             bstAttemps[i] = binarySearchTree.getLevel(binarySearchTree.getRoot(), randomSelected[i]);
             rbtAttemps[i] = redBlacktree.getLevel(redBlacktree.getRoot(), randomSelected[i]);
         }
@@ -89,7 +89,7 @@ public class Comparation {
         int[] bstAttemps = new int[10];
         int[] rbtAttemps = new int[10];
         for (int i = 0; i < randomSelected.length; i++) {
-            avlAttemps[i] = avlTree.getLevel(avlTree.getAVLRoot(), randomSelected[i]);
+            avlAttemps[i] = avlTree.getLevel(avlTree.getRoot(), randomSelected[i]);
             bstAttemps[i] = binarySearchTree.getLevel(binarySearchTree.getRoot(), randomSelected[i]);
             rbtAttemps[i] = redBlacktree.getLevel(redBlacktree.getRoot(), randomSelected[i]);
         }

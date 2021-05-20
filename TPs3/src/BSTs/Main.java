@@ -25,7 +25,7 @@ public class Main {
         System.out.println(redBlacktreeTreeCreationTime);
         //c
         System.out.println(binarySearchTree.height(binarySearchTree));
-        System.out.println(avlTree.height());
+        System.out.println(avlTree.height(avlTree.getRoot()));
         System.out.println(redBlacktree.height(redBlacktree));
     }
 }
