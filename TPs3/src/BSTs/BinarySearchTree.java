@@ -180,4 +180,28 @@ public class BinarySearchTree<T> {
             return heightRight + 1;
         }
     }
+
+    public int getLevelUtil(DoubleNode node, T data, int level) {
+        if (node == null)
+            return 0;
+
+        if (node.data == data)
+            return level;
+
+        int downlevel
+                = getLevelUtil(node.left, data, level + 1);
+        if (downlevel != 0)
+            return downlevel;
+
+        downlevel
+                = getLevelUtil(node.right, data, level + 1);
+        return downlevel;
+    }
+
+    /* Returns level of given data value */
+    int getLevel(DoubleNode node, T data)
+    {
+        return getLevelUtil(node, data, 1);
+    }
+
 }

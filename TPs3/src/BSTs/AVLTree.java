@@ -190,6 +190,29 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         }
     }
 
+    public int getLevelUtil(NodeAVL node, T data, int level) {
+        if (node == null)
+            return 0;
+
+        if (node.element == data)
+            return level;
+
+        int downlevel
+                = getLevelUtil(node.left, data, level + 1);
+        if (downlevel != 0)
+            return downlevel;
+
+        downlevel
+                = getLevelUtil(node.right, data, level + 1);
+        return downlevel;
+    }
+
+    /* Returns level of given data value */
+    int getLevel(NodeAVL node, T data)
+    {
+        return getLevelUtil(node, data, 1);
+    }
+
     public boolean isEmpty(){
         return root == null;
     }
