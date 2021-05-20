@@ -436,7 +436,7 @@ public class RedBlackTree<T> {
     }
 
     public int height(RedBlackTree<T> tree) {
-        if (tree.isEmpty()) {
+        if (tree == null){
             return -1;
         }
         int heightLeft = height(tree.getLeft());

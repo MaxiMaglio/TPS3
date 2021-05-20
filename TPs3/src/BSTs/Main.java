@@ -26,8 +26,7 @@ public class Main {
         //c
         System.out.println(binarySearchTree.height(binarySearchTree));
         System.out.println(avlTree.height());
-        redBlacktree.preorder();
-        //System.out.println(redBlacktree.height(redBlacktree));
+        System.out.println(redBlacktree.height(redBlacktree));
     }
 }
 /*

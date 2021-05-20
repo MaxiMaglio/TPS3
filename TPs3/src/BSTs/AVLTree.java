@@ -27,7 +27,7 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         if (n == null)
             return 0;
 
-        return n.height;
+        return height(n);
     }
 
     private NodeAVL<T> insert(Comparable<T> itemToBeInserted, NodeAVL<T> t) {
