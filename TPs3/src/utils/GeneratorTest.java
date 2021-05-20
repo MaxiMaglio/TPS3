@@ -17,7 +17,7 @@ public class GeneratorTest {
 
     @Test
     public void randomArrTester(){
-        int[] arr = g.randomIntArr(1,100000,1000);
+        Integer[] arr = g.randomIntArr(1,100000,1000);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
