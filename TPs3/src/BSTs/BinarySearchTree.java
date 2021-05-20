@@ -1,5 +1,7 @@
 package BSTs;
 
+import Arboles.BinaryTree;
+
 /**
  * @author Maxi Maglio on 4/13/2021.
  * @project Prog3
@@ -164,5 +166,18 @@ public class BinarySearchTree<T> {
        }
        else{ t = t.left; }
         return t;
+    }
+
+    public int height(BinarySearchTree<T> tree) {
+        if (tree.isEmpty()) {
+            return -1;
+        }
+        int heightLeft = height(tree.getLeft());
+        int heightRight = height(tree.getRight());
+        if (heightLeft > heightRight) {
+            return heightLeft + 1;
+        } else {
+            return heightRight + 1;
+        }
     }
 }
