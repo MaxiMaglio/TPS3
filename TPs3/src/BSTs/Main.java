@@ -47,6 +47,13 @@ public class Main {
         Integer[] randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
         Integer[][] treesAttemps = Comparation.treesAttemps(randomSelected, binarySearchTree, avlTree, redBlacktree);
         System.out.println("[nro] | binarySearchTree | avlTree | redBlacktree");
+        int nro = 0;
+        for (int i = 0; i < randomSelected.length; i++) {
+            System.out.println("[" + randomSelected[i] + "]\t | " + 100 + " | " + 100 + " | " + 100);
+
+        }
+        System.out.println("[" + randomSelected[nro] + "]\t | " + 100 + " | " + 100 + " | " + 100);
+        System.out.println("[" + randomSelected + "]\t | " + 100 + " | " + 100 + " | " + 100);
 
     }
 }
