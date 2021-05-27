@@ -1,6 +1,6 @@
 package BSTs;
 
-public class AVLTree<T> extends BinarySearchTree<T> {
+public class AVLTree<T> {
     private NodeAVL<T> root;
 
     public AVLTree() {
@@ -15,19 +15,37 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         root = new NodeAVL<>(o, tLeft.root, tRight.root);
     }
 
+    public boolean exists(Comparable<T> x){
+        return exists(root, x);
+    }
+
+    private boolean exists(NodeAVL<T> t, Comparable<T> x) {
+        if (t == null)
+            return false;
+        if (x.compareTo(t.element) == 0)
+            return true;
+        else if (x.compareTo( t.element)< 0)
+            return exists(t.left, x);
+        else
+            return exists(t.right, x);
+    }
+
     int height(NodeAVL<T> n) {
         if (n == null)
             return 0;
 
         return n.height;
     }
-
     int height() {
-        NodeAVL<T> n = root;
+        NodeAVL<T> n = getRoot();
         if (n == null)
             return 0;
 
         return n.height;
+    }
+
+    public NodeAVL<T> getRoot() {
+        return root;
     }
 
     private NodeAVL<T> insert(Comparable<T> itemToBeInserted, NodeAVL<T> t) {
@@ -80,7 +98,6 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         return t;
     }
 
-    @Override
     public void insert(Comparable<T> x) {
         if (!exists(x)) {
             root = insert(x, root);
@@ -100,7 +117,6 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         return t;
     }
 
-    @Override
     public void delete(Comparable<T> x) {
         if (exists(x)) {
             root = delete(root, x);
@@ -190,6 +206,10 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         }
     }
 
+    public boolean isEmpty(){
+        return root == null;
+    }
+
     public int getLevelUtil(NodeAVL node, T data, int level) {
         if (node == null)
             return 0;
@@ -213,8 +233,6 @@ public class AVLTree<T> extends BinarySearchTree<T> {
         return getLevelUtil(node, data, 1);
     }
 
-    public boolean isEmpty(){
-        return root == null;
-    }
+
 
 }
