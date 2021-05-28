@@ -13,19 +13,19 @@ public class Main {
         Integer[] randomNumbers = utils.Generator.differentRandomIntArr(1,100000, 1000);
         //b)
         System.out.println("\nb) Tiempo de construccion de cada arbol");
-        long actualTime = System.currentTimeMillis();
+        long actualTime = System.nanoTime();
         binarySearchTree = Comparation.generateBinarySearchTree(randomNumbers);
-        long bstCreationTime = System.currentTimeMillis() - actualTime;
+        long bstCreationTime = (System.nanoTime() - actualTime)/1000;
         System.out.println("  -binarySearchTree: " + bstCreationTime);
 
-        actualTime = System.currentTimeMillis();
+        actualTime = System.nanoTime();
         avlTree = Comparation.generateAVL(randomNumbers);
-        long avlTreeCreationTime = System.currentTimeMillis() - actualTime;
+        long avlTreeCreationTime = (System.nanoTime() - actualTime)/1000;
         System.out.println("  -avlTree: " + avlTreeCreationTime);
 
-        actualTime = System.currentTimeMillis();
+        actualTime = System.nanoTime();
         redBlacktree = Comparation.generateRedBlackTree(randomNumbers);
-        long redBlacktreeTreeCreationTime = System.currentTimeMillis() - actualTime;
+        long redBlacktreeTreeCreationTime = (System.nanoTime() - actualTime)/1000;
         System.out.println("  -redBlacktree: " + redBlacktreeTreeCreationTime);
         //c)
         System.out.println("\nc) Altura de cada arbol");
@@ -60,17 +60,17 @@ public class Main {
             //a)
             randomNumbers = utils.Generator.differentRandomIntArr(1,100000, 1000);
             //b)
-            actualTime = System.currentTimeMillis();
+            actualTime = System.nanoTime();
             binarySearchTree = Comparation.generateBinarySearchTree(randomNumbers);
-            datosBinarySearchTree[0][i] = System.currentTimeMillis() - actualTime;
+            datosBinarySearchTree[0][i] = System.nanoTime() - actualTime;
 
-            actualTime = System.currentTimeMillis();
+            actualTime = System.nanoTime();
             avlTree = Comparation.generateAVL(randomNumbers);
-            datosAvl[0][i] = System.currentTimeMillis() - actualTime;
+            datosAvl[0][i] = System.nanoTime() - actualTime;
 
-            actualTime = System.currentTimeMillis();
+            actualTime = System.nanoTime();
             redBlacktree = Comparation.generateRedBlackTree(randomNumbers);
-            datosRedBlacktree[0][i] = System.currentTimeMillis() - actualTime;
+            datosRedBlacktree[0][i] = System.nanoTime() - actualTime;
             //c)
             datosBinarySearchTree[1][i] = binarySearchTree.height(binarySearchTree);
             datosAvl[1][i] = avlTree.height(avlTree.getRoot());
@@ -109,30 +109,26 @@ public class Main {
 
         System.out.println("\n\n\n[tipo de arbol]\t | p. tiempo | p. altrua | p. intentos");
         System.out.println("----------------------------------------------------");
-        System.out.println("[BinarySearchTree]\t |\t\t  " + promedioBinarySearchTree[0] + "  \t\t| \t " + promedioBinarySearchTree[1] + "\t  |     " +  promedioBinarySearchTree[2]);
-        System.out.println("[AVL]\t |\t\t  " + promedioAvl[0] + "  \t\t| \t " + promedioAvl[1] + "\t  |     " +  promedioAvl[2]);
-        System.out.println("[RedBlacktree]\t |\t\t  " + promedioRedBlacktree[0] + "  \t\t| \t " + promedioRedBlacktree[1] + "\t  |     " +  promedioRedBlacktree[2]);
-
-
-
-
+        System.out.println("[BinarySearchTree]\t |\t\t  " + promedioBinarySearchTree[0]/1000 + "  \t\t| \t " + promedioBinarySearchTree[1] + "\t  |     " +  promedioBinarySearchTree[2]);
+        System.out.println("[AVL]\t |\t\t  " + promedioAvl[0]/1000 + "  \t\t| \t " + promedioAvl[1] + "\t  |     " +  promedioAvl[2]);
+        System.out.println("[RedBlacktree]\t |\t\t  " + promedioRedBlacktree[0]/1000 + "  \t\t| \t " + promedioRedBlacktree[1] + "\t  |     " +  promedioRedBlacktree[2]);
     }
 }
 /*
 //a)
         Integer[] randomNumbers = utils.Generator.randomIntArr(1,100000, 1000);
         //b)
-        long actualTime = System.currentTimeMillis();
+        long actualTime = System.nanoTime();
         avlTree = this.generateAVL(randomNumbers);
-        long avlTreeCreationTime = System.currentTimeMillis() - actualTime;
+        long avlTreeCreationTime = System.nanoTime() - actualTime;
 
-        actualTime = System.currentTimeMillis();
+        actualTime = System.nanoTime();
         binarySearchTree = this.generateBinarySearchTree(randomNumbers);
-        long bstCreationTime = System.currentTimeMillis() - actualTime;
+        long bstCreationTime = System.nanoTime() - actualTime;
 
-        actualTime = System.currentTimeMillis();
+        actualTime = System.nanoTime();
         redBlacktree = this.generateRedBlackTree(randomNumbers);
-        long redBlacktreeTreeCreationTime = System.currentTimeMillis() - actualTime;
+        long redBlacktreeTreeCreationTime = System.nanoTime() - actualTime;
         //c)
         int avlTreeHeight = avlTree.height();
         int binarySearchTreeHeight = binarySearchTree.height(binarySearchTree);
