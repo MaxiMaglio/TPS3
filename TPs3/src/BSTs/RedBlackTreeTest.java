@@ -16,5 +16,9 @@ class RedBlackTreeTest {
         h.insert(55);
         h.insert(54);
         h.preorder();
+        System.out.println("");
+        h.postorder();
+        System.out.println("");
+        h.inorder();
     }
 }
