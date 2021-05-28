@@ -52,9 +52,9 @@ public class Main {
         System.out.println("Promedio |\t\t  " + (sumaBinarySearchTree/randomSelected.length) + "  \t\t| \t " + (sumaAvl/randomSelected.length) + "\t  |     " + (sumRedBlacktree/randomSelected.length));
 
         //e)
-        long[][] datosBinarySearchTree = new long[10][3];//[i][BinarySearchTree, Avl, Blacktree][tiempo p, altura p, intentos p]
-        long[][] datosAvl = new long[10][3];
-        long[][] datosBlacktree = new long[10][3];
+        long[][] datosBinarySearchTree = new long[3][10];//[i][BinarySearchTree, Avl, Blacktree][tiempo p, altura p, intentos p]
+        long[][] datosAvl = new long[3][10];
+        long[][] datosRedBlacktree = new long[3][10];
 
         for (int i = 0; i < 10; i++) {
             //a)
@@ -62,19 +62,19 @@ public class Main {
             //b)
             actualTime = System.currentTimeMillis();
             binarySearchTree = Comparation.generateBinarySearchTree(randomNumbers);
-            datosBinarySearchTree[i][0] = System.currentTimeMillis() - actualTime;
+            datosBinarySearchTree[0][i] = System.currentTimeMillis() - actualTime;
 
             actualTime = System.currentTimeMillis();
             avlTree = Comparation.generateAVL(randomNumbers);
-            datosAvl[i][0] = System.currentTimeMillis() - actualTime;
+            datosAvl[0][i] = System.currentTimeMillis() - actualTime;
 
             actualTime = System.currentTimeMillis();
             redBlacktree = Comparation.generateRedBlackTree(randomNumbers);
-            datosBlacktree[i][0] = System.currentTimeMillis() - actualTime;
+            datosRedBlacktree[0][i] = System.currentTimeMillis() - actualTime;
             //c)
-            datosBinarySearchTree[i][1] = binarySearchTree.height(binarySearchTree);
-            datosAvl[i][1] = avlTree.height(avlTree.getRoot());
-            datosBlacktree[i][1] = redBlacktree.height(redBlacktree);
+            datosBinarySearchTree[1][i] = binarySearchTree.height(binarySearchTree);
+            datosAvl[1][i] = avlTree.height(avlTree.getRoot());
+            datosRedBlacktree[1][i] = redBlacktree.height(redBlacktree);
             //d)
             randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
             treesAttemps = Comparation.treesAttemps(randomSelected, binarySearchTree, avlTree, redBlacktree);
@@ -86,18 +86,35 @@ public class Main {
                 sumaAvl += treesAttemps[1][j];
                 sumRedBlacktree += treesAttemps[2][j];
             }
-            datosBinarySearchTree[i][2] = (long)(sumaBinarySearchTree/randomSelected.length);
-            datosAvl[i][2] = (long)(sumaAvl/randomSelected.length);
-            datosBlacktree[i][2] = (long)((sumRedBlacktree/randomSelected.length));
+            datosBinarySearchTree[2][i] = (long)(sumaBinarySearchTree/randomSelected.length);
+            datosAvl[2][i] = (long)(sumaAvl/randomSelected.length);
+            datosRedBlacktree[2][i] = (long)((sumRedBlacktree/randomSelected.length));
         }
         //datos a imprimir_____________________________
         long[] promedioBinarySearchTree = new long[3];
-        long[] promedioBinaryAvl = new long[3];
-        long[] promediolacktree = new long[3];
+        long[] promedioAvl = new long[3];
+        long[] promedioRedBlacktree = new long[3];
 
-        promedioBinarySearchTree[1] = Comparation.promedioDeArreglo(datosBinarySearchTree[][i])
-        promedioBinarySearchTree[2] = Comparation.promedioDeArreglo(datosBinarySearchTree[][i])
-        promedioBinarySearchTree[3] = Comparation.promedioDeArreglo(datosBinarySearchTree[][i])
+        promedioBinarySearchTree[0] = Comparation.promedioDeArreglo(datosBinarySearchTree[0]);
+        promedioBinarySearchTree[1] = Comparation.promedioDeArreglo(datosBinarySearchTree[1]);
+        promedioBinarySearchTree[2] = Comparation.promedioDeArreglo(datosBinarySearchTree[2]);
+
+        promedioAvl[0] = Comparation.promedioDeArreglo(datosAvl[0]);
+        promedioAvl[1] = Comparation.promedioDeArreglo(datosAvl[1]);
+        promedioAvl[2] = Comparation.promedioDeArreglo(datosAvl[2]);
+
+        promedioRedBlacktree[0] = Comparation.promedioDeArreglo(datosRedBlacktree[0]);
+        promedioRedBlacktree[1] = Comparation.promedioDeArreglo(datosRedBlacktree[1]);
+        promedioRedBlacktree[2] = Comparation.promedioDeArreglo(datosRedBlacktree[2]);
+
+        System.out.println("\n\n\n[tipo de arbol]\t | p. tiempo | p. altrua | p. intentos");
+        System.out.println("----------------------------------------------------");
+        System.out.println("[BinarySearchTree]\t |\t\t  " + promedioBinarySearchTree[0] + "  \t\t| \t " + promedioBinarySearchTree[1] + "\t  |     " +  promedioBinarySearchTree[2]);
+        System.out.println("[AVL]\t |\t\t  " + promedioAvl[0] + "  \t\t| \t " + promedioAvl[1] + "\t  |     " +  promedioAvl[2]);
+        System.out.println("[RedBlacktree]\t |\t\t  " + promedioRedBlacktree[0] + "  \t\t| \t " + promedioRedBlacktree[1] + "\t  |     " +  promedioRedBlacktree[2]);
+
+
+
 
     }
 }
