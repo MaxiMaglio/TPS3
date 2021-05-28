@@ -12,7 +12,7 @@ public class Main {
         System.out.println("a) ✔ (generar un arrglo de 1k enteros que varian de 1 a 100k)");
         Integer[] randomNumbers = utils.Generator.differentRandomIntArr(1,100000, 1000);
         //b)
-        System.out.println("\nb) Tiempo de construccion de cada arbol");
+        System.out.println("\nb) Tiempo de construccion de cada arbol (micro sec)");
         long actualTime = System.nanoTime();
         binarySearchTree = Comparation.generateBinarySearchTree(randomNumbers);
         long bstCreationTime = (System.nanoTime() - actualTime)/1000;
@@ -33,7 +33,7 @@ public class Main {
         System.out.println("  -avlTree: " + avlTree.height(avlTree.getRoot()));
         System.out.println("  -redBlacktree: " + redBlacktree.height(redBlacktree));
         //d)
-        System.out.println("\nd) Altura de cada arbol");
+        System.out.println("\nd) Tabla con nro de intentos");
         Integer[] randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
         Integer[][] treesAttemps = Comparation.treesAttemps(randomSelected, binarySearchTree, avlTree, redBlacktree);
         System.out.println("[nro]\t | binarySearchTree | avlTree | redBlacktree");
@@ -107,40 +107,11 @@ public class Main {
         promedioRedBlacktree[1] = Comparation.promedioDeArreglo(datosRedBlacktree[1]);
         promedioRedBlacktree[2] = Comparation.promedioDeArreglo(datosRedBlacktree[2]);
 
-        System.out.println("\n\n\n[tipo de arbol]\t | p. tiempo | p. altrua | p. intentos");
-        System.out.println("----------------------------------------------------");
-        System.out.println("[BinarySearchTree]\t |\t\t  " + promedioBinarySearchTree[0]/1000 + "  \t\t| \t " + promedioBinarySearchTree[1] + "\t  |     " +  promedioBinarySearchTree[2]);
-        System.out.println("[AVL]\t |\t\t  " + promedioAvl[0]/1000 + "  \t\t| \t " + promedioAvl[1] + "\t  |     " +  promedioAvl[2]);
-        System.out.println("[RedBlacktree]\t |\t\t  " + promedioRedBlacktree[0]/1000 + "  \t\t| \t " + promedioRedBlacktree[1] + "\t  |     " +  promedioRedBlacktree[2]);
+        System.out.println("\nd) Promedios de tiempo, altura e intentos");
+        System.out.println("\n[tipo de arbol]\t   | p. tiempo |  p. altura | p. intentos");
+        System.out.println("---------------------------------------------------------");
+        System.out.println("[BinarySearchTree] |\t" + promedioBinarySearchTree[0]/1000 + "\t   |\t " + promedioBinarySearchTree[1] + "  \t|     " +  promedioBinarySearchTree[2]);
+        System.out.println("[AVL]              |\t" + promedioAvl[0]/1000 + "\t   |\t " + promedioAvl[1] + "\t|     " +  promedioAvl[2]);
+        System.out.println("[RedBlacktree]     |\t" + promedioRedBlacktree[0]/1000 + "\t   |\t " + promedioRedBlacktree[1] + "  \t|     " +  promedioRedBlacktree[2]);
     }
 }
-/*
-//a)
-        Integer[] randomNumbers = utils.Generator.randomIntArr(1,100000, 1000);
-        //b)
-        long actualTime = System.nanoTime();
-        avlTree = this.generateAVL(randomNumbers);
-        long avlTreeCreationTime = System.nanoTime() - actualTime;
-
-        actualTime = System.nanoTime();
-        binarySearchTree = this.generateBinarySearchTree(randomNumbers);
-        long bstCreationTime = System.nanoTime() - actualTime;
-
-        actualTime = System.nanoTime();
-        redBlacktree = this.generateRedBlackTree(randomNumbers);
-        long redBlacktreeTreeCreationTime = System.nanoTime() - actualTime;
-        //c)
-        int avlTreeHeight = avlTree.height();
-        int binarySearchTreeHeight = binarySearchTree.height(binarySearchTree);
-        int redBlacktreeTreeHeight = redBlacktree.height(redBlacktree);
-        //d)
-        Integer[] randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
-        int[] avlAttemps = new int[10];
-        int[] bstAttemps = new int[10];
-        int[] rbtAttemps = new int[10];
-        for (int i = 0; i < randomSelected.length; i++) {
-            avlAttemps[i] = avlTree.getLevel(avlTree.getAVLRoot(), randomSelected[i]);
-            bstAttemps[i] = binarySearchTree.getLevel(binarySearchTree.getRoot(), randomSelected[i]);
-            rbtAttemps[i] = redBlacktree.getLevel(redBlacktree.getRoot(), randomSelected[i]);
-        }
- */
