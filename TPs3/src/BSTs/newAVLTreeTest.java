@@ -24,10 +24,18 @@ public class newAVLTreeTest {
 
         System.out.println("Preorder: ");
         tree.preOrder(tree.root);
+
         System.out.println("");
         System.out.println("----------------------------------");
-        System.out.println("Inorder:");
+
+        System.out.println("Inorder: ");
         tree.inOrder(tree.root);
+
+        System.out.println("");
+        System.out.println("----------------------------------");
+
+        System.out.println("PostOrder: ");
+        tree.postOrder(tree.root);
 
     }
 

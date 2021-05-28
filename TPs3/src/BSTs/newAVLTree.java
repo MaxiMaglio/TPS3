@@ -28,7 +28,6 @@ public class newAVLTree {
     }
 
     // A utility function to right rotate subtree rooted with y
-    // See the diagram given above.
     Node rightRotate(Node y) {
         Node x = y.left;
         Node T2 = x.right;
@@ -46,7 +45,6 @@ public class newAVLTree {
     }
 
     // A utility function to left rotate subtree rooted with x
-    // See the diagram given above.
     Node leftRotate(Node x) {
         Node y = x.right;
         Node T2 = y.left;
@@ -118,8 +116,6 @@ public class newAVLTree {
         return node;
     }
 
-    // A utility function to print preorder traversal
-    // of the tree.
     // The function also prints height of every node
     void preOrder(Node node) {
         if (node != null) {
@@ -134,6 +130,14 @@ public class newAVLTree {
             inOrder(a.left);
             System.out.print(a.key + " ");
             inOrder(a.right);
+        }
+    }
+
+    public void postOrder(Node a){
+        if (a != null){
+            postOrder(a.left);
+            postOrder(a.right);
+            System.out.print(a.key + " ");
         }
     }
 
