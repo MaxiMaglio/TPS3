@@ -96,7 +96,7 @@ public class Comparation {
         return new Integer[][]{bstAttemps, avlAttemps, rbtAttemps};
     }
 
-    public static long promedioDeArreglo(Integer[] arr){
+    public static long promedioDeArreglo(long[] arr){
         int suma = 0;
         for (int i = 0; i < arr.length; i++) {
             suma += arr[i];
