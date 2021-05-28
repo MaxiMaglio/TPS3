@@ -97,11 +97,11 @@ public class Comparation {
     }
 
     public static long promedioDeArreglo(long[] arr){
-        int suma = 0;
+        long suma = 0;
         for (int i = 0; i < arr.length; i++) {
             suma += arr[i];
         }
-        return suma/arr.length;
+        return suma/ arr.length;
     }
 
 }
