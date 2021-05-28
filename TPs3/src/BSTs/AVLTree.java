@@ -62,9 +62,6 @@ public class AVLTree<T> {
             ; // Duplicate; do nothing
         return balance(t);
     }
-
-
-
     // Assume t is either balanced or within one of being balanced
     private NodeAVL<T> balance(NodeAVL<T> t) {
         if (t == null)
