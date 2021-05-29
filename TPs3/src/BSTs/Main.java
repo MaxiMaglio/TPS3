@@ -30,8 +30,9 @@ public class Main {
         //c)
         System.out.println("\nc) Altura de cada arbol");
         System.out.println("  -binarySearchTree: " + binarySearchTree.height(binarySearchTree));
-        System.out.println("  -avlTree: " + avlTree.height(avlTree.getRoot()));
+        System.out.println("  -avlTree: " + avlTree.height(avlTree.root));
         System.out.println("  -redBlacktree: " + redBlacktree.height(redBlacktree));
+        System.out.println(avlTree.weight(avlTree.root));
         //d)
         System.out.println("\nd) Tabla con nro de intentos");
         Integer[] randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
@@ -73,7 +74,7 @@ public class Main {
             datosRedBlacktree[0][i] = System.nanoTime() - actualTime;
             //c)
             datosBinarySearchTree[1][i] = binarySearchTree.height(binarySearchTree);
-            datosAvl[1][i] = avlTree.height(avlTree.getRoot());
+            datosAvl[1][i] = avlTree.height(avlTree.root);
             datosRedBlacktree[1][i] = redBlacktree.height(redBlacktree);
             //d)
             randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);

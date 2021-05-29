@@ -10,7 +10,7 @@ public class Comparation {
     public void main(String[] args) {
 
         //a)
-        Integer[] randomNumbers = utils.Generator.randomIntArr(1,100000, 1000);
+        Integer[] randomNumbers = utils.Generator.differentRandomIntArr(1,100000, 1000);
         //b)
         long actualTime = System.currentTimeMillis();
         avlTree = this.generateAVL(randomNumbers);
@@ -24,7 +24,7 @@ public class Comparation {
         redBlacktree = this.generateRedBlackTree(randomNumbers);
         long redBlacktreeTreeCreationTime = System.currentTimeMillis() - actualTime;
         //c)
-        int avlTreeHeight = avlTree.height();
+        int avlTreeHeight = avlTree.height(avlTree.root);
         int binarySearchTreeHeight = binarySearchTree.height(binarySearchTree);
         int redBlacktreeTreeHeight = redBlacktree.height(redBlacktree);
         //d)
@@ -33,7 +33,7 @@ public class Comparation {
         int[] bstAttemps = new int[10];
         int[] rbtAttemps = new int[10];
         for (int i = 0; i < randomSelected.length; i++) {
-            avlAttemps[i] = avlTree.getLevel(avlTree.getRoot(), randomSelected[i]);
+            avlAttemps[i] = avlTree.getLevel(avlTree.root, randomSelected[i]);
             bstAttemps[i] = binarySearchTree.getLevel(binarySearchTree.getRoot(), randomSelected[i]);
             rbtAttemps[i] = redBlacktree.getLevel(redBlacktree.getRoot(), randomSelected[i]);
         }
@@ -42,10 +42,10 @@ public class Comparation {
 
 
 
-    public static AVLTree<Integer> generateAVL(Integer[] array){
-        AVLTree<Integer> avl = new AVLTree<>();
+    public static AVLTree generateAVL(Integer[] array){
+        AVLTree avl = new AVLTree();
         for (int i = 0; i < array.length; i++) {
-            avl.insert(array[i]);
+            avl.root = avl.insert(avl.root,array[i]);
         }
         return avl;
     }
@@ -89,7 +89,7 @@ public class Comparation {
         Integer[] bstAttemps = new Integer[10];
         Integer[] rbtAttemps = new Integer[10];
         for (int i = 0; i < randomSelected.length; i++) {
-            avlAttemps[i] = avlTree.getLevel(avlTree.getRoot(), randomSelected[i]);
+            avlAttemps[i] = avlTree.getLevel(avlTree.root, randomSelected[i]);
             bstAttemps[i] = binarySearchTree.getLevel(binarySearchTree.getRoot(), randomSelected[i]);
             rbtAttemps[i] = redBlacktree.getLevel(redBlacktree.getRoot(), randomSelected[i]);
         }

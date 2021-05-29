@@ -1,34 +1,40 @@
 package BSTs;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class AVLTreeTest {
 
+public class AVLTreeTest {
+    AVLTree tree = new AVLTree(7);
     @Test
-    void insertShouldReturn() {
-        AVLTree<Integer> arbol = new AVLTree<>(7);
-      /* NodeAVL<Integer> node10 = new NodeAVL<>(10);
-       NodeAVL<Integer> node15 = new NodeAVL<>(15);
-       NodeAVL<Integer> node25 = new NodeAVL<>(25);
-       NodeAVL<Integer> node80 = new NodeAVL<>(80);
-       */
-        arbol.insert(3);
-        arbol.insert(11);
-        arbol.insert(9);
-        arbol.insert(13);
-        arbol.insert(12);
-        arbol.insert(33);
-        arbol.insert(44);
-        arbol.insert(55);
-        arbol.insert(66);
-        arbol.insert(1);
-        arbol.insert(4);
-        arbol.preOrden(arbol);
-        System.out.println(arbol.height());
+    public void insert() {
+       /* tree.root = tree.insert(tree.root, 3);
+        tree.root = tree.insert(tree.root, 11);
+        tree.root = tree.insert(tree.root, 9);
+        tree.root = tree.insert(tree.root, 13);
+        tree.root = tree.insert(tree.root, 12);
+        tree.root = tree.insert(tree.root, 33);
+        tree.root = tree.insert(tree.root, 44);
+        tree.root = tree.insert(tree.root, 55);
+        tree.root = tree.insert(tree.root, 66);
+        tree.root = tree.insert(tree.root, 1);
+        tree.root = tree.insert(tree.root, 4);
+        */
+        System.out.println("Preorder: ");
+        tree.preOrder(tree.root);
+
+        System.out.println("");
+        System.out.println("----------------------------------");
+
+        System.out.println("Inorder: ");
+        tree.inOrder(tree.root);
+
+        System.out.println("");
+        System.out.println("----------------------------------");
+
+        System.out.println("PostOrder: ");
+        tree.postOrder(tree.root);
+
     }
 
-    @Test
-    void deleteShouldReturn() {
 
-    }
 }
