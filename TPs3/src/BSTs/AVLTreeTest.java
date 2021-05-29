@@ -7,7 +7,7 @@ public class AVLTreeTest {
     AVLTree tree = new AVLTree(7);
     @Test
     public void insert() {
-       /* tree.root = tree.insert(tree.root, 3);
+       tree.root = tree.insert(tree.root, 3);
         tree.root = tree.insert(tree.root, 11);
         tree.root = tree.insert(tree.root, 9);
         tree.root = tree.insert(tree.root, 13);
@@ -18,7 +18,6 @@ public class AVLTreeTest {
         tree.root = tree.insert(tree.root, 66);
         tree.root = tree.insert(tree.root, 1);
         tree.root = tree.insert(tree.root, 4);
-        */
         System.out.println("Preorder: ");
         tree.preOrder(tree.root);
 

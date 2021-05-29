@@ -1,7 +1,5 @@
 package BSTs;
 
-import Arboles.BinaryTree;
-
 public class RedBlackTree<T> {
     private RedBlackNode root;
     private RedBlackNode TNULL;

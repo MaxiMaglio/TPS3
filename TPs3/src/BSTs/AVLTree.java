@@ -1,11 +1,5 @@
 package BSTs;
 
-
-import Arboles.BinaryTree;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class AVLTree<T> {
 
     AVLNode root;
