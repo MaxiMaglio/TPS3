@@ -30,7 +30,6 @@ public class Main {
         System.out.println("  -binarySearchTree: " + binarySearchTree.height(binarySearchTree));
         System.out.println("  -avlTree: " + avlTree.height(avlTree.root));
         System.out.println("  -redBlacktree: " + redBlacktree.height(redBlacktree));
-        System.out.println(avlTree.weight(avlTree.root));
         //d)
         System.out.println("\nd) Tabla con nro de intentos");
         Integer[] randomSelected = Generator.chooseRandomNumbers(randomNumbers, 10);
@@ -110,7 +109,7 @@ public class Main {
         System.out.println("\n[tipo de arbol]\t   | p. tiempo |  p. altura | p. intentos");
         System.out.println("---------------------------------------------------------");
         System.out.println("[BinarySearchTree] |\t" + promedioBinarySearchTree[0]/1000 + "\t   |\t " + promedioBinarySearchTree[1] + "  \t|     " +  promedioBinarySearchTree[2]);
-        System.out.println("[AVL]              |\t" + promedioAvl[0]/1000 + "\t   |\t " + promedioAvl[1] + "\t|     " +  promedioAvl[2]);
+        System.out.println("[AVL]              |\t" + promedioAvl[0]/1000 + "\t   |\t " + promedioAvl[1] + "  \t|     " +  promedioAvl[2]);
         System.out.println("[RedBlacktree]     |\t" + promedioRedBlacktree[0]/1000 + "\t   |\t " + promedioRedBlacktree[1] + "  \t|     " +  promedioRedBlacktree[2]);
     }
 }
