@@ -1,7 +1,5 @@
 package BSTs;
 
-import utils.Generator;
-
 public class Comparation {
     BinarySearchTree<Integer> binarySearchTree;
     AVLTree<Integer> avlTree;

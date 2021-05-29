@@ -1,7 +1,5 @@
 package BSTs;
 
-import utils.Generator;
-
 public class Main {
     public static void main(String[] args) {
         BinarySearchTree<Integer> binarySearchTree;
