@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class AnnualSalesArchive {
 
-    private final int recordByteSize = 17;
+    private final int recordByteSize = 31;
     public File file;
     public RandomAccessFile raf;
 

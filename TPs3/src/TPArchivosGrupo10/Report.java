@@ -9,9 +9,9 @@ public class Report {
     private USDPriceArchive usdPriceArchive;
 
     public Report(DestinationArchive destinationArchive, AnnualSalesArchive annualSalesArchive, USDPriceArchive usdPriceArchive) {
-        destinationArchive = destinationArchive;
-        annualSalesArchive = annualSalesArchive;
-        usdPriceArchive = usdPriceArchive;
+        this.destinationArchive = destinationArchive;
+        this.annualSalesArchive = annualSalesArchive;
+        this.usdPriceArchive = usdPriceArchive;
     }
 
     public void monthlyRevenue() throws IOException {
