@@ -2,7 +2,7 @@ package TPArchivosGrupo10;
 
 public class Sale {
     private String destinationCode;
-    private String articleCode;
+    private int articleCode;
     private int quantity;
     private int unitPriceInUSD;
     private int saleDate;
@@ -10,7 +10,7 @@ public class Sale {
     private int saleYear;
 
 
-    public Sale(String destinationCode, String articleCode, int quantity, int unitPriceInUSD,
+    public Sale(String destinationCode, int articleCode, int quantity, int unitPriceInUSD,
                 int saleDate, int saleMonth, int saleYear) {
         this.destinationCode = destinationCode;
         this.articleCode = articleCode;
@@ -25,7 +25,7 @@ public class Sale {
         return destinationCode;
     }
 
-    public String getArticleCode() {
+    public int getArticleCode() {
         return articleCode;
     }
 
