@@ -1,8 +1,13 @@
 package HashTables;
 
-public class Soundex
-{
-    public static String getGode(String s)
+public class Soundex implements Hashable {
+    String value;
+
+    public Soundex(String value){
+        this.value = value;
+    }
+
+    public static String getCode(String s)
     {
         char[] x = s.toUpperCase().toCharArray();
 
@@ -75,5 +80,22 @@ public class Soundex
         //Pad with 0's or truncate
         output = output + "0000";
         return output.substring(0, 4);
+    }
+
+    @Override
+    public int hash(int M) {
+        String code, previous, soundex;
+        code = value.toUpperCase().charAt(0) + "";
+        previous = "7";
+        for (int i = 1; i < value.length(); i++) {
+            String current = getCode(value);
+            if (current.length() > 0 && !current.equals(previous)) {
+                code = code + current;
+            }
+            previous = current;
+        }
+        soundex = (code + "0000").substring(0, 4);
+        Integer value = Integer.parseInt(soundex);
+        return (int) value;
     }
 }
