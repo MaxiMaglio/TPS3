@@ -1,4 +1,4 @@
-package utils;
+package Grupo10BSTs;
 
 import java.util.Random;
 
@@ -43,20 +43,6 @@ public class Generator {
             newArr[i] = arr[randomInt(0, arr.length)];
         }
         return newArr;
-    }
-
-    public String generateString(int stringLength) { //Creates a random codeName
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int length = stringLength; //string length
-        Random random = new Random();
-        StringBuilder buffer = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        return buffer.toString().toUpperCase();
     }
 
 }
